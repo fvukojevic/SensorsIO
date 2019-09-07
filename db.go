@@ -1,4 +1,4 @@
-package SensorsIO
+package main
 
 import (
 	"github.com/jinzhu/gorm"
@@ -14,4 +14,6 @@ func connectToDatabase() {
 	if dbErr!=nil{
 		log.Fatal(dbErr)
 	}
+
+	db.AutoMigrate(&User{})
 }
