@@ -65,20 +65,19 @@ func Login (c *gin.Context) {
 	go LogoutTimeout(user.Token)
 }
 
-func Renew(c *gin.Context){
-    var token
+func Renew(c *gin.Context) {
+    var token string
     if err := c.BindJSON(&token); err != nil {
     	log.Println(&err)
     }
 
-    var newToken := tokenGenerator(64)
+    newToken := tokenGenerator(64)
     tokenQuery := "UPDATE users SET token = ? WHERE token = ?"
     if err := db.Exec(tokenQuery, newToken, token).Error; err != nil {
     		log.Println(err)
     		return
     }
-log.Println(err)
-    	}
+}
 
 
 func Logout(c *gin.Context) {
