@@ -77,6 +77,10 @@ func Renew(c *gin.Context) {
     		log.Println(err)
     		return
     }
+
+    c.JSON(http.StatusOK, gin.H{
+                     "token" : newToken
+     })
 }
 
 func UpdateProfile(c *gin.Context){
@@ -84,7 +88,7 @@ func UpdateProfile(c *gin.Context){
     	if err := c.BindJSON(&user); err != nil {
     		log.Println(&err)
     	}
-    return UpdateProfile(user)
+    return updateProfile(user)
 
 }
 
@@ -128,7 +132,7 @@ func deleteTokenFromUser(id int) {
 	}
 }
 
-func UpdateProfile(user User){
+func updateProfile(user User){
    updateProfileQuery:= "UPDATE users SET username = ?, email = ?, name = ?, surname=? WHERE token = ?"
     if err := db.Exec(updateProfileQuery, user.Username, user.Email, user.Name, user.Surname, user.Token).Error; err != nil {
        		log.Println(err)
