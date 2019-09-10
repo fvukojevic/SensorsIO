@@ -2,7 +2,6 @@ package main
 
 import (
 	"crypto/md5"
-	"crypto/rand"
 	"encoding/hex"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -23,7 +22,7 @@ type User struct {
 }
 
 type UserToken struct {
-	ID int `json:"id"`
+	ID int `json:"-"`
 	Token string `json:"token"`
 
 }
@@ -62,40 +61,8 @@ func Login (c *gin.Context) {
 	user.ID = 0
 	user.Token = token
 
-	c.JSON(200, user)
+	c.JSON(http.StatusOK, user)
 	go LogoutTimeout(user.Token)
-}
-
-func Renew(c *gin.Context) {
-    var token string
-    if err := c.BindJSON(&token); err != nil {
-    	log.Println(&err)
-    }
-
-    newToken := tokenGenerator(64)
-    tokenQuery := "UPDATE users SET token = ? WHERE token = ?"
-    if err := db.Exec(tokenQuery, newToken, token).Error; err != nil {
-    		log.Println(err)
-    		return
-    }
-
-    c.JSON(200, gin.H{
-                     "token" : newToken,
-     })
-}
-
-func UpdateProfile(c *gin.Context){
-    user := &User{}
-    	if err := c.BindJSON(&user); err != nil {
-    		log.Println(&err)
-    	}
-
-    	updateProfile(*user)
-
-	c.JSON(http.StatusOK, gin.H{
-		"code" : http.StatusOK,
-		"message": "profile updated successfully",// cast it to string before showing
-	})
 }
 
 func Logout(c *gin.Context) {
@@ -103,6 +70,12 @@ func Logout(c *gin.Context) {
 
 	if err := c.BindJSON(&userToken); err != nil {
 		log.Println(&err)
+	}
+
+	if userToken.Token == "" {
+		c.JSON(http.StatusNotFound, gin.H {
+			"err" : "Not found",
+		})
 	}
 
 	user := findUserWithToken(userToken.Token)
@@ -117,6 +90,41 @@ func LogoutTimeout(token string){
 	if user.ID != 0 {
 		deleteTokenFromUser(user.ID)
 	}
+}
+
+func Renew(c *gin.Context) {
+    token := &UserToken{}
+    if err := c.BindJSON(&token); err != nil {
+    	log.Println(&err)
+    }
+
+    fmt.Println("TOKEN: ")
+    fmt.Print(token)
+
+    newToken := tokenGenerator(64)
+    tokenQuery := "UPDATE users SET token = ? WHERE token = ?"
+    if err := db.Exec(tokenQuery, newToken, token.Token).Error; err != nil {
+    		log.Println(err)
+    		return
+    }
+
+    c.JSON(http.StatusOK, gin.H{
+    	"token" : newToken,
+	})
+}
+
+func UpdateProfile(c *gin.Context){
+    user := &User{}
+    	if err := c.BindJSON(&user); err != nil {
+    		log.Println(&err)
+    	}
+
+    	updateProfile(*user)
+
+	c.JSON(http.StatusOK, gin.H{
+		"code" : http.StatusOK,
+		"message": "profile updated successfully",// cast it to string before showing
+	})
 }
 
 func findUserWithToken(token string) *UserToken {
@@ -144,12 +152,4 @@ func updateProfile(user User){
        		log.Println(err)
        		return
        }
-}
-
-func tokenGenerator(len int) string {
-	b := make([]byte, len)
-	if _,err := rand.Read(b); err != nil {
-		log.Println(err)
-	}
-	return fmt.Sprintf("%x", b)
 }
