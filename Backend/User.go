@@ -79,16 +79,16 @@ func Renew(c *gin.Context) {
     }
 
     c.JSON(http.StatusOK, gin.H{
-                     "token" : newToken
+                     "token" : newToken,
      })
 }
 
 func UpdateProfile(c *gin.Context){
-    user := &UserToken{}
+    user := &User{}
     	if err := c.BindJSON(&user); err != nil {
     		log.Println(&err)
     	}
-    return updateProfile(user)
+     updateProfile(*user)
 
 }
 
@@ -138,7 +138,7 @@ func updateProfile(user User){
        		log.Println(err)
        		return
        }
-     c.JSON(http.StatusOK, gin.H{
+    c.JSON(http.StatusOK, gin.H{
                  "code" : http.StatusOK,
                  "message": "profile updated successfully",// cast it to string before showing
      })
