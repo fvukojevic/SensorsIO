@@ -3,7 +3,6 @@ package main
 import (
 	"crypto/md5"
 	"encoding/hex"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 	"log"
@@ -39,7 +38,7 @@ func Login (c *gin.Context) {
 	user := &UserToken{}
 
 	if err := c.BindJSON(&credentials); err != nil {
-		log.Println(&err)
+		throwStatusNotFound(c)
 	}
 
 	hash.Write([]byte(credentials.Password))
@@ -48,17 +47,15 @@ func Login (c *gin.Context) {
 	findQuery := "SELECT u.id FROM users u WHERE email = ? AND password = ?"
 
 	if err := db.Debug().Raw(findQuery, credentials.Email, credentials.Password).Scan(&user).Error; err != nil {
-		log.Println(err)
+		throwStatusBadRequest(err.Error(), c)
 	}
 
 	token := tokenGenerator(64)
 	tokenQuery := "UPDATE users SET token = ? WHERE id = ?"
 	if err := db.Exec(tokenQuery, token, user.ID).Error; err != nil {
-		log.Println(err)
-		return
+		throwStatusInternalServerError(err.Error(), c)
 	}
 
-	user.ID = 0
 	user.Token = token
 
 	c.JSON(http.StatusOK, user)
@@ -69,13 +66,11 @@ func Logout(c *gin.Context) {
 	userToken := &UserToken{}
 
 	if err := c.BindJSON(&userToken); err != nil {
-		log.Println(&err)
+		throwStatusBadRequest(err.Error(), c)
 	}
 
 	if userToken.Token == "" {
-		c.JSON(http.StatusNotFound, gin.H {
-			"err" : "Not found",
-		})
+		throwStatusNotFound(c)
 	}
 
 	user := findUserWithToken(userToken.Token)
@@ -95,36 +90,28 @@ func LogoutTimeout(token string){
 func Renew(c *gin.Context) {
     token := &UserToken{}
     if err := c.BindJSON(&token); err != nil {
-    	log.Println(&err)
+		throwStatusNotFound(c)
     }
-
-    fmt.Println("TOKEN: ")
-    fmt.Print(token)
 
     newToken := tokenGenerator(64)
     tokenQuery := "UPDATE users SET token = ? WHERE token = ?"
     if err := db.Exec(tokenQuery, newToken, token.Token).Error; err != nil {
-    		log.Println(err)
+			throwStatusBadRequest(err.Error(), c)
     		return
     }
 
-    c.JSON(http.StatusOK, gin.H{
-    	"token" : newToken,
-	})
+    throwStatusOkWithMessage(newToken, c)
 }
 
 func UpdateProfile(c *gin.Context){
     user := &User{}
     	if err := c.BindJSON(&user); err != nil {
-    		log.Println(&err)
+			throwStatusNotFound(c)
     	}
 
     	updateProfile(*user)
 
-	c.JSON(http.StatusOK, gin.H{
-		"code" : http.StatusOK,
-		"message": "profile updated successfully",// cast it to string before showing
-	})
+	throwStatusOkWithMessage("profile updated successfully", c)
 }
 
 func findUserWithToken(token string) *UserToken {
@@ -132,7 +119,7 @@ func findUserWithToken(token string) *UserToken {
 	findQuery := "SELECT u.id FROM users u WHERE token = ?"
 
 	if err := db.Debug().Raw(findQuery, token).Scan(&user).Error; err != nil {
-		log.Println(err)
+		throwStatusNotFound(c)
 	}
 
 	return user
