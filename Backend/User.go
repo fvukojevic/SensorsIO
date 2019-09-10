@@ -79,6 +79,14 @@ func Renew(c *gin.Context) {
     }
 }
 
+func UpdateProfile(c *gin.Context){
+    user := &UserToken{}
+    	if err := c.BindJSON(&user); err != nil {
+    		log.Println(&err)
+    	}
+    return UpdateProfile(user)
+
+}
 
 func Logout(c *gin.Context) {
 	userToken := &UserToken{}
@@ -118,6 +126,19 @@ func deleteTokenFromUser(id int) {
 	if err := db.Exec(deleteQuery, id).Error; err != nil {
 		log.Println(err)
 	}
+}
+
+func UpdateProfile(user User){
+   updateProfileQuery:= "UPDATE users SET username = ?, email = ?, name = ?, surname=? WHERE token = ?"
+    if err := db.Exec(updateProfileQuery, user.Username, user.Email, user.Name, user.Surname, user.Token).Error; err != nil {
+       		log.Println(err)
+       		return
+       }
+     c.JSON(http.StatusOK, gin.H{
+                 "code" : http.StatusOK,
+                 "message": "profile updated successfully",// cast it to string before showing
+     })
+
 }
 
 func tokenGenerator(len int) string {
