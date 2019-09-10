@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 	"log"
+	"net/http"
 	"time"
 )
 
@@ -78,7 +79,7 @@ func Renew(c *gin.Context) {
     		return
     }
 
-    c.JSON(http.StatusOK, gin.H{
+    c.JSON(200, gin.H{
                      "token" : newToken,
      })
 }
@@ -88,8 +89,13 @@ func UpdateProfile(c *gin.Context){
     	if err := c.BindJSON(&user); err != nil {
     		log.Println(&err)
     	}
-     updateProfile(*user)
 
+    	updateProfile(*user)
+
+	c.JSON(http.StatusOK, gin.H{
+		"code" : http.StatusOK,
+		"message": "profile updated successfully",// cast it to string before showing
+	})
 }
 
 func Logout(c *gin.Context) {
@@ -138,11 +144,6 @@ func updateProfile(user User){
        		log.Println(err)
        		return
        }
-    c.JSON(http.StatusOK, gin.H{
-                 "code" : http.StatusOK,
-                 "message": "profile updated successfully",// cast it to string before showing
-     })
-
 }
 
 func tokenGenerator(len int) string {
