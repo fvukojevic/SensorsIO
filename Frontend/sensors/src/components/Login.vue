@@ -1,14 +1,14 @@
 <template>
     <div class="wrp">
 
-      <form class="form-signin">
+      <form class="form-signin" action="#" @submit.prevent="login">
         <img class="img-responsive" id="logImage" src="/src/assets/img/logoDark.png" />
 
         <hr id="hrBold">
         <h2 class="form-signin-heading">Login</h2>
 
         <label>Username</label>
-        <input id="user" type="text" class="form-control" v-model="username" required="" autofocus="" />
+        <input id="user" type="text" class="form-control" v-model="email" required="" autofocus="" />
 
         <label>Password</label>
         <input id="pass" type="password" class="form-control" v-model="password" required="" />
@@ -23,5 +23,19 @@
 <script>
   export default {
     name: 'login',
+    data() {
+      return {
+        email: '',
+        password: '',
+      }
+    },
+    methods: {
+      login() {
+        this.$store.dispatch('retrieveToken', {
+          email : this.email,
+          password : this.password,
+        })
+      }
+    }
   }
 </script>
