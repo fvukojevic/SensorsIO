@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import App from './App.vue'
 import {store} from './store/store'
+import Login from "./components/Login.vue";
 
 new Vue({
-  el: '#app',
+  el: '#login',
   store: store,
-  render: h => h(App)
+  render: h => h(Login)
 })
