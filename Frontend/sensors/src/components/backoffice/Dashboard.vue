@@ -18,31 +18,31 @@
           <li class="active">
             <a href="dashboard.php">
               <i class="pe-7s-graph"></i>
-              <p>Početna stranica</p>
+              <p>Landing Page</p>
             </a>
           </li>
           <li>
             <a href="/PiiS/web/profil.php">
               <i class="pe-7s-user"></i>
-              <p>Korisnički profil</p>
+              <p>User Profile</p>
             </a>
           </li>
           <li>
             <a href="prostorije.php">
               <i class="pe-7s-home"></i>
-              <p>Prostorije</p>
+              <p>Rooms</p>
             </a>
           </li>
           <li>
             <a href="obavijesti.php">
               <i class="pe-7s-news-paper"></i>
-              <p>Obavijesti</p>
+              <p>Notifications</p>
             </a>
           </li>
           <li>
             <a href="postavke.php">
               <i class="pe-7s-switch"></i>
-              <p>Postavke</p>
+              <p>Settings</p>
             </a>
           </li>
         </ul>
@@ -59,18 +59,12 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand hidden-xl hidden-lg hidden-md" href="#"><span class="logo-style">sensor.io</span> / Početna stranica</a>
-            <a class="navbar-brand hidden-xs hidden-sm" href="#">Početna stranica</a>
+            <a class="navbar-brand hidden-xl hidden-lg hidden-md" href="#"><span class="logo-style">sensor.io</span> /Landing Page</a>
+            <a class="navbar-brand hidden-xs hidden-sm" href="#">Landing Page</a>
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li>
-                <form action="/PiiS/api/logout.php">
-                  <input class=" hidden-xs hidden-sm btn btn-info btn-block" type="submit" value="Odjavi se">
-                  <input class="hidden-xl hidden-lg hidden-md btn btn-default btn-block" id="logOut" type="submit" value="ODJAVI SE">
-                </form>
-              </li>
-              <li class="separator hidden-lg"></li>
+              <li v-if="loggedIn"><router-link :to="{ name: 'logout'}">Logout</router-link></li>
             </ul>
           </div>
         </div>
@@ -112,6 +106,10 @@
 
 <script>
   export default {
-
+    computed: {
+      loggedIn() {
+        return this.$store.getters.loggedIn
+      }
+    }
   }
 </script>

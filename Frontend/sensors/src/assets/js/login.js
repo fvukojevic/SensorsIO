@@ -26,37 +26,4 @@ $(document).ready(function(){
     $("#selectIP").click(function(e){
         serverInput();
     });
-
-    $("#loggMeIn").click(function(e){
-      e.preventDefault();
- 
-        var user = $("#user").val();
-        var pass = $("#pass").val();
-        //console.log(user + pass);
-		//console.log(serverName);
-        $.ajax({url: 'http://'+ serverName + '/index.php',
-        type: "POST",
-		 dataType: 'JSON',
-        data: {method:'login', username: user, password: pass},
-        success: function(obj){
-			/*console.log("hehehh");
-			console.log(obj.url);*/
-		if(obj.loggedIn==false){
-                swal({
-                    title: 'Greška!',
-                    text: 'Molimo unesite točan username i password!',
-                    type: 'error',
-                }).catch(swal.noop);
-			}
-			else
-			eval(obj.url);
-         
-        },
-        error: function(err){
-            console.log("hehe")
-        }
-        }); 
-        
-    });
-
 });

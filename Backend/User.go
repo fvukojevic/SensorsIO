@@ -62,17 +62,13 @@ func Login(c *gin.Context) {
 }
 
 func Logout(c *gin.Context) {
-	userToken := &UserToken{}
+	token := c.Request.Header.Get("Authorization")
 
-	if err := c.BindJSON(&userToken); err != nil {
-		throwStatusBadRequest(err.Error(), c)
-	}
-
-	if userToken.Token == "" {
+	if token == "" {
 		throwStatusNotFound(c)
 	}
 
-	user := findUserWithToken(userToken.Token)
+	user := findUserWithToken(token)
 	deleteTokenFromUser(user.ID)
 }
 
