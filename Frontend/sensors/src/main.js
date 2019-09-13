@@ -5,11 +5,13 @@ import {store} from './store/store'
 
 import Master from "./components/layout/Master.vue";
 import Login from "./components/auth/Login.vue";
+import Dashboard from "./components/backoffice/Dashboard";
 
 Vue.use(VueRouter)
 
 const routes = [
-  { path : '/', component: Login}
+  { path : '/', component: Login},
+  { path :'/dashboard', component: Dashboard}
 ]
 
 const router = new VueRouter({
