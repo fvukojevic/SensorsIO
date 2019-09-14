@@ -9,9 +9,9 @@
 
       <div class="sidebar-wrapper">
         <div class="logo">
-          <a href="/PiiS/web/dashboard.php" class="simple-text">
+          <router-link :to="{ name: 'dashboard'}">
             <img class="img-responsive" src="/src/assets/img/logo.png"/>
-          </a>
+          </router-link>
         </div>
 
         <ul class="nav">
@@ -97,6 +97,9 @@
           <p class="copyright pull-left">
             sensor.io -  <a href="https://github.com/fvukojevic/SensorsIO" target="_blank">Git Hub</a>
           </p>
+          <p class="copyright pull-right">
+            Server - {{ this.serverName }}
+          </p>
         </div>
       </footer>
 
@@ -109,6 +112,9 @@
     computed: {
       loggedIn() {
         return this.$store.getters.loggedIn
+      },
+      serverName() {
+        return this.$store.getters.serverName
       }
     }
   }

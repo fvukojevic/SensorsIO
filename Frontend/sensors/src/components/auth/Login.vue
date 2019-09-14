@@ -13,7 +13,7 @@
         <label>Password</label>
         <input id="pass" type="password" class="form-control" v-model="password" required="" />
 
-        <button class="btn btn-lg btn-primary btn-block" onclick="return false;" id="selectIP">Change the server</button>
+        <button class="btn btn-lg btn-primary btn-block" v-on:click="serverInput" id="selectIP">Change the server</button>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       </form>
 
@@ -32,15 +32,18 @@
     methods: {
       login() {
         this.$store.dispatch('retrieveToken', {
-          email : this.email,
-          password : this.password,
+          email: this.email,
+          password: this.password,
         })
           .then(() => {
             this.$router.push({
               name: 'dashboard'
             })
           })
-      }
+      },
+      serverInput() {
+        this.$store.dispatch('insertServer')
+      },
     }
   }
 </script>
