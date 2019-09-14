@@ -1,53 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="sidebar" data-color="blue" data-image="/src/assets/img/sidebar-4.jpg">
-
-      <!--
-          Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-          Tip 2: you can also add an image using data-image tag
-      -->
-
-      <div class="sidebar-wrapper">
-        <div class="logo">
-          <router-link :to="{ name: 'dashboard'}">
-            <img class="img-responsive" src="/src/assets/img/logo.png"/>
-          </router-link>
-        </div>
-
-        <ul class="nav">
-          <li class="active">
-            <a href="dashboard.php">
-              <i class="pe-7s-graph"></i>
-              <p>Landing Page</p>
-            </a>
-          </li>
-          <li>
-            <a href="/PiiS/web/profil.php">
-              <i class="pe-7s-user"></i>
-              <p>User Profile</p>
-            </a>
-          </li>
-          <li>
-            <a href="prostorije.php">
-              <i class="pe-7s-home"></i>
-              <p>Rooms</p>
-            </a>
-          </li>
-          <li>
-            <a href="obavijesti.php">
-              <i class="pe-7s-news-paper"></i>
-              <p>Notifications</p>
-            </a>
-          </li>
-          <li>
-            <a href="postavke.php">
-              <i class="pe-7s-switch"></i>
-              <p>Settings</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <Sidebar />
 
     <div class="main-panel">
       <nav class="navbar navbar-default navbar-fixed">
@@ -70,7 +23,6 @@
         </div>
       </nav>
 
-
       <div class="content">
         <div class="container-fluid">
           <div class="row">
@@ -92,30 +44,26 @@
         </div>
       </div>
 
-      <footer class="footer">
-        <div class="container-fluid">
-          <p class="copyright pull-left">
-            sensor.io -  <a href="https://github.com/fvukojevic/SensorsIO" target="_blank">Git Hub</a>
-          </p>
-          <p class="copyright pull-right">
-            Server - {{ this.serverName }}
-          </p>
-        </div>
-      </footer>
+      <Footer />
 
     </div>
   </div>
 </template>
 
 <script>
+  import Footer from '../layout/Footer.vue'
+  import Sidebar from '../layout/Sidebar'
+
   export default {
+    name: 'Dashboard',
+    components: {
+      Sidebar,
+      Footer
+    },
     computed: {
       loggedIn() {
         return this.$store.getters.loggedIn
       },
-      serverName() {
-        return this.$store.getters.serverName
-      }
     }
   }
 </script>
