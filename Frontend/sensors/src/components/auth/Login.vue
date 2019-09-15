@@ -13,7 +13,7 @@
         <label>Password</label>
         <input id="pass" type="password" class="form-control" v-model="password" required="" />
 
-        <button class="btn btn-lg btn-primary btn-block" v-on:click="serverInput" id="selectIP">Change the server</button>
+        <input type="button" class="btn btn-lg btn-primary btn-block" v-on:click="serverInput" id="selectIP" value="Change the server">
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
       </form>
 
