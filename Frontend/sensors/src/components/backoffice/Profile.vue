@@ -46,12 +46,12 @@
                   <h4 class="title">Edit profile</h4>
                 </div>
                 <div class="content">
-                  <form>
+                  <form @submit.prevent="updateUser">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>Username</label>
-                          <input id="formUsername" type="text" class="form-control" placeholder="Korisnički ime" value="" required="">
+                          <input id="formUsername" type="text" class="form-control" v-model="user.username" required="">
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -65,7 +65,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                           <label>Email address</label>
-                          <input id="formEmail" type="email" class="form-control" placeholder="Email" value="" required="">
+                          <input id="formEmail" type="email" class="form-control" v-model="user.email"required="">
                         </div>
                       </div>
                     </div>
@@ -73,18 +73,18 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>Name</label>
-                          <input id="formName" type="text" class="form-control" placeholder="Ime" value="" required="">
+                          <input id="formName" type="text" class="form-control" v-model="user.name"required="">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
                           <label>Lastname</label>
-                          <input id="formSurname" type="text" class="form-control" placeholder="Prezime" value="" required="">
+                          <input id="formSurname" type="text" class="form-control" v-model="user.lastname" required="">
                         </div>
                       </div>
                     </div>
                     <hr>
-                    <button id="updateProfile" class="moarButton">Save changes</button>
+                    <button type="submit" class="moarButton">Save changes</button>
                     <div class="clearfix"></div>
                   </form>
                 </div>
@@ -105,6 +105,25 @@
 
     export default {
         name: "Profile",
+        data() {
+          return {
+            user:{
+              name:'',
+              lastname: '',
+              email:'',
+              username: '',
+            }
+          }
+        },
+        created() {
+          this.$store.dispatch('getUser')
+            .then(response => {
+              this.user.email = response.data.Email
+              this.user.name = response.data.Name
+              this.user.lastname = response.data.Surname
+              this.user.username = response.data.Username
+            })
+        },
         components: {
           Footer,
           Sidebar
@@ -112,6 +131,25 @@
         computed: {
           loggedIn() {
             return this.$store.getters.loggedIn
+          },
+        },
+        methods: {
+          updateUser() {
+            this.$store.dispatch('updateUser', {
+              user: this.user
+            })
+              .then(() => {
+                swal({
+                  position: 'middle',
+                  type: 'success',
+                  title: 'Uspješno ažuriranje profila!',
+                  showConfirmButton: false,
+                  timer: 2000,
+                  width: '300px'
+                }).catch(swal.noop);
+              }).catch(error => {
+              alert(error)
+            })
           },
         }
     }

@@ -17,7 +17,8 @@ func main() {
 		v1.POST("/login", Login)
 		v1.POST("/logout", Logout)
 		v1.POST("/renew", Renew)
-		v1.POST("/updateProfile", UpdateProfile)
+		v1.POST("/getUser", getUser)
+		v1.POST("/updateUser", updateUser)
 	}
 
 	router.Run(":8888")

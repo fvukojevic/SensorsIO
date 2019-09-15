@@ -12,11 +12,11 @@ import (
 
 type User struct {
 	gorm.Model
-	Username string `json:"username"`
-	Password string `json:"password"`
-	Email    string `json:"email"`
-	Name     string `json:"name"`
-	Surname  string `json:"surname"`
+	Username string `json:"username;not null"`
+	Password string `json:"password;not null"`
+	Email    string `json:"email;not null"`
+	Name     string `json:"name;not null"`
+	Surname  string `json:"surname;not null"`
 	Token    string `json:"token"`
 }
 
@@ -68,14 +68,14 @@ func Logout(c *gin.Context) {
 		throwStatusNotFound(c)
 	}
 
-	user := findUserWithToken(token)
+	user := findUserIdWithToken(token)
 	deleteTokenFromUser(user.ID)
 }
 
 func LogoutTimeout(token string) {
 	time.Sleep(1 * time.Hour)
 
-	user := findUserWithToken(token)
+	user := findUserIdWithToken(token)
 
 	if user.ID != 0 {
 		deleteTokenFromUser(user.ID)
@@ -83,14 +83,14 @@ func LogoutTimeout(token string) {
 }
 
 func Renew(c *gin.Context) {
-	token := &UserToken{}
-	if err := c.BindJSON(&token); err != nil {
+	token := c.Request.Header.Get("Authorization")
+	if token == "" {
 		throwStatusNotFound(c)
 	}
 
 	newToken := tokenGenerator(64)
 	tokenQuery := "UPDATE users SET token = ? WHERE token = ?"
-	if err := db.Exec(tokenQuery, newToken, token.Token).Error; err != nil {
+	if err := db.Exec(tokenQuery, newToken, token).Error; err != nil {
 		throwStatusBadRequest(err.Error(), c)
 		return
 	}
@@ -98,18 +98,34 @@ func Renew(c *gin.Context) {
 	throwStatusOkWithMessage(newToken, c)
 }
 
-func UpdateProfile(c *gin.Context) {
+func getUser(c *gin.Context) {
+	user := &User{}
+	token := c.Request.Header.Get("Authorization")
+	if token == "" {
+		throwStatusNotFound(c)
+	}
+
+	query := "SELECT * FROM users WHERE token = ?"
+	if err := db.Debug().Raw(query, token).Scan(&user).Error; err != nil {
+		throwStatusNotFound(c)
+	}
+
+	c.JSON(http.StatusOK, user)
+}
+
+func updateUser(c *gin.Context) {
+	token := c.Request.Header.Get("Authorization")
 	user := &User{}
 	if err := c.BindJSON(&user); err != nil {
 		throwStatusNotFound(c)
 	}
 
+	user.Token = token
 	updateProfile(*user)
-
-	throwStatusOkWithMessage("profile updated successfully", c)
+	c.JSON(http.StatusOK, user)
 }
 
-func findUserWithToken(token string) *UserToken {
+func findUserIdWithToken(token string) *UserToken {
 	user := &UserToken{}
 	findQuery := "SELECT u.id FROM users u WHERE token = ?"
 
@@ -132,6 +148,5 @@ func updateProfile(user User) {
 	updateProfileQuery := "UPDATE users SET username = ?, email = ?, name = ?, surname=? WHERE token = ?"
 	if err := db.Exec(updateProfileQuery, user.Username, user.Email, user.Name, user.Surname, user.Token).Error; err != nil {
 		log.Println(err)
-		return
 	}
 }

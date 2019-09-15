@@ -94,6 +94,36 @@ export const store = new Vuex.Store({
         context.commit('insertServer', serverName)
         location.reload();
       }).catch(swal.noop);
+    },
+
+    getUser(context) {
+      axios.defaults.headers.common['Authorization'] = context.state.token
+
+      return new Promise((resolve, reject) => {
+        axios.post('http://localhost:8888/user/getUser')
+          .then(response => {
+            resolve(response)
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
+    },
+
+    updateUser(context, user) {
+      axios.defaults.headers.common['Authorization'] = context.state.token
+      return new Promise((resolve, reject) => {
+        axios.post('http://localhost:8888/user/updateUser', {
+          email: user.user.email,
+          username: user.user.username,
+          surname: user.user.lastname,
+          name: user.user.name
+        }).then(response => {
+          resolve(response)
+        }).catch(error => {
+          reject(error)
+        })
+      })
     }
   }
 })
