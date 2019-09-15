@@ -8,17 +8,17 @@
       </div>
 
       <ul class="nav">
-        <li class="active">
-          <a href="dashboard.php">
+        <li :class="{ active : currentPage('/dashboard')}">
+          <router-link :to="{ name: 'dashboard'}">
             <i class="pe-7s-graph"></i>
             <p>Landing Page</p>
-          </a>
+          </router-link>
         </li>
-        <li>
-          <a href="/PiiS/web/profil.php">
-            <i class="pe-7s-user"></i>
-            <p>User Profile</p>
-          </a>
+        <li :class="{ active : currentPage('/profile')}">
+          <router-link :to="{ name: 'profile'}">
+              <i class="pe-7s-user"></i>
+              <p>User Profile</p>
+          </router-link>
         </li>
         <li>
           <a href="prostorije.php">
@@ -45,6 +45,11 @@
 
 <script>
     export default {
-        name: "Sidebar"
+        name: "Sidebar",
+        methods: {
+          currentPage(path) {
+            return this.$route.path === path
+          }
+        }
     }
 </script>

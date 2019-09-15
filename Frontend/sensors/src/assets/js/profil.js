@@ -92,6 +92,4 @@ $(document).ready(function(){
                 });
           }).catch(swal.noop);
     });
-    
-    console.log("d");
 });
