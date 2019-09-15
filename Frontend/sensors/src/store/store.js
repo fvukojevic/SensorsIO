@@ -34,7 +34,7 @@ export const store = new Vuex.Store({
     retrieveToken(context, credentials) {
 
       return new Promise((resolve, reject) => {
-        axios.post('http://localhost:8888/user/login', {
+        axios.post('http://' + this.state.server + '/user/login', {
           email : credentials.email,
           password : credentials.password,
         })
@@ -47,7 +47,14 @@ export const store = new Vuex.Store({
             resolve(response)
           })
           .catch(error => {
-            alert('Credentials did not match')
+            swal({
+              position: 'middle',
+              type: 'error',
+              title: 'Error connecting to server',
+              showConfirmButton: false,
+              timer: 2000,
+              width: '300px'
+            })
             reject(error)
           })
       })
@@ -58,7 +65,7 @@ export const store = new Vuex.Store({
 
       if(context.getters.loggedIn) {
         return new Promise((resolve, reject) => {
-          axios.post('http://localhost:8888/user/logout')
+          axios.post('http://' + this.state.server + '/user/logout')
             .then(response => {
               localStorage.removeItem('access_token')
               context.commit('destroyToken')
@@ -100,7 +107,7 @@ export const store = new Vuex.Store({
       axios.defaults.headers.common['Authorization'] = context.state.token
 
       return new Promise((resolve, reject) => {
-        axios.post('http://localhost:8888/user/getUser')
+        axios.post('http://' + this.state.server + '/user/getUser')
           .then(response => {
             resolve(response)
           })
@@ -113,7 +120,7 @@ export const store = new Vuex.Store({
     updateUser(context, user) {
       axios.defaults.headers.common['Authorization'] = context.state.token
       return new Promise((resolve, reject) => {
-        axios.post('http://localhost:8888/user/updateUser', {
+        axios.post('http://' + this.state.server + '/user/updateUser', {
           email: user.user.email,
           username: user.user.username,
           surname: user.user.lastname,
