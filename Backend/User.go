@@ -3,6 +3,7 @@ package main
 import (
 	"crypto/md5"
 	"encoding/hex"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 	"log"
@@ -23,6 +24,13 @@ type User struct {
 type UserToken struct {
 	ID    int    `json:"-"`
 	Token string `json:"token"`
+}
+
+type UserPassword struct {
+	ID          int    `json:"-"`
+	Token       string `json:"token"`
+	OldPassword string `json:"oldPassword"`
+	NewPassword string `json:"newPassword"`
 }
 
 type LoginCredentials struct {
@@ -98,7 +106,7 @@ func Renew(c *gin.Context) {
 	throwStatusOkWithMessage(newToken, c)
 }
 
-func getUser(c *gin.Context) {
+func GetUser(c *gin.Context) {
 	user := &User{}
 	token := c.Request.Header.Get("Authorization")
 	if token == "" {
@@ -113,16 +121,42 @@ func getUser(c *gin.Context) {
 	c.JSON(http.StatusOK, user)
 }
 
-func updateUser(c *gin.Context) {
+func UpdateUser(c *gin.Context) {
 	token := c.Request.Header.Get("Authorization")
 	user := &User{}
+	if token == "" {
+		throwStatusNotFound(c)
+	}
+
 	if err := c.BindJSON(&user); err != nil {
 		throwStatusNotFound(c)
 	}
 
 	user.Token = token
-	updateProfile(*user)
+	updateUser(*user)
 	c.JSON(http.StatusOK, user)
+}
+
+func UpdatePassword(c *gin.Context) {
+	token := c.Request.Header.Get("Authorization")
+	if token == "" {
+		throwStatusNotFound(c)
+	}
+
+	userPassword := &UserPassword{}
+	if err := c.BindJSON(&userPassword); err != nil {
+		throwStatusNotFound(c)
+	}
+
+	fmt.Println(userPassword)
+
+	userPassword.Token = token
+	if err := updatePassword(*userPassword).Error(); err != "" {
+		throwStatusBadRequest("bad request", c)
+		fmt.Println("FERDOOO")
+	}
+
+	c.JSON(http.StatusOK, userPassword)
 }
 
 func findUserIdWithToken(token string) *UserToken {
@@ -144,9 +178,36 @@ func deleteTokenFromUser(id int) {
 	}
 }
 
-func updateProfile(user User) {
+func updateUser(user User) {
 	updateProfileQuery := "UPDATE users SET username = ?, email = ?, name = ?, surname=? WHERE token = ?"
 	if err := db.Exec(updateProfileQuery, user.Username, user.Email, user.Name, user.Surname, user.Token).Error; err != nil {
 		log.Println(err)
 	}
+}
+
+func updatePassword(userPassword UserPassword) (err error) {
+	hash := md5.New()
+	user := &User{}
+
+	hash.Write([]byte(userPassword.OldPassword))
+	userPassword.OldPassword = hex.EncodeToString(hash.Sum(nil))
+	fmt.Println(userPassword.OldPassword)
+
+	findQuery := "SELECT password FROM users u WHERE token = ? AND password = ?"
+
+	if err := db.Debug().Raw(findQuery, userPassword.Token, userPassword.OldPassword).Scan(&user).Error; err != nil {
+		return err
+	}
+
+	fmt.Println(user)
+	if user.Password != "" {
+		newHash := md5.New()
+		newHash.Write([]byte(userPassword.NewPassword))
+		userPassword.NewPassword = hex.EncodeToString(newHash.Sum(nil))
+		updateQuery := "UPDATE users SET password = ? WHERE token = ?"
+		if err := db.Exec(updateQuery, userPassword.NewPassword, userPassword.Token).Error; err != nil {
+			return err
+		}
+	}
+	return fmt.Errorf("")
 }
