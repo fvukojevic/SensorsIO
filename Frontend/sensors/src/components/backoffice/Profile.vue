@@ -34,8 +34,7 @@
                 <div class="content">
                   <div class="author">
                     <img class="avatar border-gray" src="/src/assets/img/face-2.jpg" alt="..."/>
-                    <hr>
-                    <h3 id="headFullName"></h3>
+                    <h3 id="headFullName">{{ user.username }}</h3>
                   </div>
                 </div>
               </div>
