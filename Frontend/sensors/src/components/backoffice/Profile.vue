@@ -39,6 +39,7 @@
                 </div>
               </div>
             </div>
+
             <div class="col-md-12">
               <div class="card">
                 <div class="header">
@@ -54,14 +55,6 @@
                         </div>
                       </div>
                       <div class="col-md-6">
-                        <div class="form-group">
-                          <label>Change Password</label>
-                          <button id="changePassword" class="btn btn-default btn-block"> Change password</button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
                         <div class="form-group">
                           <label>Email address</label>
                           <input id="formEmail" type="email" class="form-control" v-model="user.email"required="">
@@ -89,6 +82,42 @@
                 </div>
               </div>
             </div>
+
+            <div class="col-md-12">
+              <div class="card">
+                <div class="header">
+                  <h4 class="title">Change password</h4>
+                </div>
+                <div class="content">
+                  <form @submit.prevent="updatePassword">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Old password</label>
+                          <input id="formOldPassword" type="password" class="form-control" v-model="user.oldPassword" required="">
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>New password</label>
+                          <input id="formNewPassword" type="password" class="form-control" v-model="user.newPassword" required="">
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-md-offset-3">
+                        <div class="form-group">
+                          <label>Reenter password</label>
+                          <input id="formConfirmPassword" type="password" class="form-control" v-model="user.confirmPassword" required="">
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                    <button type="submit" class="moarButton">Change password</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -111,6 +140,9 @@
               lastname: '',
               email:'',
               username: '',
+              oldPassword: '',
+              newPassword: '',
+              confirmPassword: '',
             }
           }
         },
@@ -141,7 +173,7 @@
                 swal({
                   position: 'middle',
                   type: 'success',
-                  title: 'Uspješno ažuriranje profila!',
+                  title: 'Profile edited successfully!',
                   showConfirmButton: false,
                   timer: 2000,
                   width: '300px'
@@ -150,6 +182,36 @@
               alert(error)
             })
           },
+
+          updatePassword() {
+            this.$store.dispatch('updatePassword', {
+              user: this.user
+            })
+              .then(() => {
+                swal({
+                  position: 'middle',
+                  type: 'success',
+                  title: 'Password changed successfully!',
+                  showConfirmButton: false,
+                  timer: 2000,
+                  width: '300px'
+                }).catch(swal.noop);
+              }).catch(() => {
+                this.user.oldPassword = '',
+                this.user.newPassword = '',
+                this.user.confirmPassword = '',
+
+                swal({
+                  position: 'middle',
+                  type: 'error',
+                  title: 'Passwords don\'t match',
+                  showConfirmButton: false,
+                  timer: 2000,
+                  width: '300px'
+                })
+              })
+          },
+
         }
     }
 </script>
