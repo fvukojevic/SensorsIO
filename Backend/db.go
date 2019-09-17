@@ -17,4 +17,5 @@ func connectToDatabase() {
 
 	db.AutoMigrate(&User{})
 	db.AutoMigrate(&Room{})
+	db.AutoMigrate(&Waspmote{})
 }
