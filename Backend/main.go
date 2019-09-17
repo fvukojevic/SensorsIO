@@ -22,6 +22,11 @@ func main() {
 		v1.POST("/updatePassword", UpdatePassword)
 	}
 
+	v2 := router.Group("/room")
+	{
+		v2.GET("/getRooms", GetRooms)
+	}
+
 	router.Run(":8888")
 }
 

@@ -39,7 +39,9 @@
                   </tr>
                   </thead>
                   <tbody id="tbody">
-
+                    <tr v-for="room in this.rooms">
+                      <td> {{room.name}}</td>
+                    </tr>
                   </tbody>
                 </table>
                 <button id="addRoom" class="moarButton">Add new room <strong>+</strong></button>
@@ -62,11 +64,33 @@
 
   export default {
     name: "Room",
+    data() {
+      return {
+        rooms:{
+          id: '',
+          name:'',
+          CreatedAt: '',
+          UpdatedAt:'',
+          DeletedAt: '',
+        }
+      }
+    },
+
+    created() {
+      this.$store.dispatch('getRooms')
+        .then(response => {
+          this.rooms = response.data
+          console.log(this.rooms)
+
+        })
+    },
+
     computed: {
       loggedIn() {
         return this.$store.getters.loggedIn
       },
     },
+
     components: {
       Footer,
       Sidebar

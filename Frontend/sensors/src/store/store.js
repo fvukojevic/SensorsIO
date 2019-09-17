@@ -5,10 +5,12 @@ import axios from 'axios'
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
+
   state: {
     token: localStorage.getItem('access_token') || null,
     server: localStorage.getItem('serverName') || null,
   },
+
   getters: {
     loggedIn(state) {
       return state.token != null
@@ -17,6 +19,7 @@ export const store = new Vuex.Store({
       return state.server
     },
   },
+
   mutations: {
     retrieveToken(state, token) {
       state.token = token
@@ -30,6 +33,7 @@ export const store = new Vuex.Store({
       state.server =  serverName
     }
   },
+
   actions: {
     retrieveToken(context, credentials) {
 
@@ -147,5 +151,18 @@ export const store = new Vuex.Store({
         })
       })
     },
+
+    getRooms() {
+      return new Promise((resolve, reject) => {
+        axios.get('http://' + this.state.server + '/room/getRooms')
+          .then(response => {
+            resolve(response)
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
+    },
+
   }
 })
