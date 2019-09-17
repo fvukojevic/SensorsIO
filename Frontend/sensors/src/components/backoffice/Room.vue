@@ -39,8 +39,15 @@
                   </tr>
                   </thead>
                   <tbody id="tbody">
-                    <tr v-for="room in this.rooms">
+                    <tr v-for="room in rooms">
                       <td> {{room.name}}</td>
+                      <td>
+                        <select class="selectBoard">
+                          <option v-for="waspomote in waspomotes">
+                            {{ waspomote.name }}
+                          </option>
+                        </select>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -67,11 +74,16 @@
     data() {
       return {
         rooms:{
-          id: '',
-          name:'',
+          ID: '',
+          name: '',
           CreatedAt: '',
-          UpdatedAt:'',
+          UpdatedAt: '',
           DeletedAt: '',
+        },
+        waspomotes:{
+          ID:'',
+          name: '',
+          idRoom: '',
         }
       }
     },
@@ -80,8 +92,11 @@
       this.$store.dispatch('getRooms')
         .then(response => {
           this.rooms = response.data
-          console.log(this.rooms)
+        });
 
+      this.$store.dispatch('getWaspmotes')
+        .then(response => {
+          this.waspomotes = response.data
         })
     },
 

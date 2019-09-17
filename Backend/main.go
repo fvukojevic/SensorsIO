@@ -27,6 +27,11 @@ func main() {
 		v2.GET("/getRooms", GetRooms)
 	}
 
+	v3 := router.Group("/waspmote")
+	{
+		v3.GET("/getWaspmotes", GetWaspmotes)
+	}
+
 	router.Run(":8888")
 }
 

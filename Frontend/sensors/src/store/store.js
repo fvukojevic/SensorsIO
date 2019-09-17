@@ -164,5 +164,17 @@ export const store = new Vuex.Store({
       })
     },
 
+    getWaspmotes() {
+      return new Promise((resolve, reject) => {
+        axios.get('http://' + this.state.server + '/waspmote/getWaspmotes')
+          .then(response => {
+            resolve(response)
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
+    },
+
   }
 })
