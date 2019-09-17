@@ -20,11 +20,11 @@
               <p>User Profile</p>
           </router-link>
         </li>
-        <li>
-          <a href="prostorije.php">
+        <li :class="{ active : currentPage('/rooms')}">
+          <router-link :to="{ name: 'rooms'}">
             <i class="pe-7s-home"></i>
             <p>Rooms</p>
-          </a>
+          </router-link>
         </li>
         <li>
           <a href="obavijesti.php">
