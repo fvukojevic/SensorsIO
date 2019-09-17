@@ -131,6 +131,21 @@ export const store = new Vuex.Store({
           reject(error)
         })
       })
-    }
+    },
+
+    updatePassword(context, user) {
+      axios.defaults.headers.common['Authorization'] = context.state.token
+      return new Promise((resolve, reject) => {
+        axios.post('http://' + this.state.server + '/user/updatePassword', {
+          oldPassword: user.user.oldPassword,
+          newPassword: user.user.newPassword,
+          confirmPassword: user.user.confirmPassword,
+        }).then(response => {
+          resolve(response)
+        }).catch(error => {
+          reject(error)
+        })
+      })
+    },
   }
 })

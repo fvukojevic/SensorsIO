@@ -27,10 +27,11 @@ type UserToken struct {
 }
 
 type UserPassword struct {
-	ID          int    `json:"-"`
-	Token       string `json:"token"`
-	OldPassword string `json:"oldPassword"`
-	NewPassword string `json:"newPassword"`
+	ID              int    `json:"-"`
+	Token           string `json:"token"`
+	OldPassword     string `json:"oldPassword"`
+	NewPassword     string `json:"newPassword"`
+	ConfirmPassword string `json:"confirmPassword"`
 }
 
 type LoginCredentials struct {
@@ -148,12 +149,13 @@ func UpdatePassword(c *gin.Context) {
 		throwStatusNotFound(c)
 	}
 
-	fmt.Println(userPassword)
+	if userPassword.NewPassword != userPassword.ConfirmPassword {
+		throwStatusInternalServerError("new password doesn't match confirmed one", c)
+	}
 
 	userPassword.Token = token
 	if err := updatePassword(*userPassword).Error(); err != "" {
 		throwStatusBadRequest("bad request", c)
-		fmt.Println("FERDOOO")
 	}
 
 	c.JSON(http.StatusOK, userPassword)
@@ -191,7 +193,6 @@ func updatePassword(userPassword UserPassword) (err error) {
 
 	hash.Write([]byte(userPassword.OldPassword))
 	userPassword.OldPassword = hex.EncodeToString(hash.Sum(nil))
-	fmt.Println(userPassword.OldPassword)
 
 	findQuery := "SELECT password FROM users u WHERE token = ? AND password = ?"
 
@@ -199,7 +200,6 @@ func updatePassword(userPassword UserPassword) (err error) {
 		return err
 	}
 
-	fmt.Println(user)
 	if user.Password != "" {
 		newHash := md5.New()
 		newHash.Write([]byte(userPassword.NewPassword))
