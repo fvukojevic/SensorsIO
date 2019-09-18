@@ -42,12 +42,9 @@
                     <tr v-for="room in rooms">
                       <td> {{room.name}}</td>
                       <td>
-                        <select class="selectBoard">
-                          <option v-for="waspomote in waspomotes">
-                            {{ waspomote.name }}
-                          </option>
-                        </select>
-                      </td>
+                        <Select :room-id="room.ID"/>
+                      </td><td><button :id="room.ID" class="deleteRoom delButton btn-block" style="margin: 0px; padding: 8px 0;"><i class="fa fa-times" aria-hidden="true"></i></button></td>
+                      <td><button :id="room.ID" class="addBoard moarButton" style="margin: 0px; padding: 8px 0;"><i class="fa fa-floppy-o" aria-hidden="true"></i></button></td>
                     </tr>
                   </tbody>
                 </table>
@@ -68,6 +65,7 @@
 <script>
   import Footer from '../layout/Footer.vue'
   import Sidebar from '../layout/Sidebar'
+  import Select from '../layout/Select'
 
   export default {
     name: "Room",
@@ -80,11 +78,6 @@
           UpdatedAt: '',
           DeletedAt: '',
         },
-        waspomotes:{
-          ID:'',
-          name: '',
-          idRoom: '',
-        }
       }
     },
 
@@ -93,11 +86,6 @@
         .then(response => {
           this.rooms = response.data
         });
-
-      this.$store.dispatch('getWaspmotes')
-        .then(response => {
-          this.waspomotes = response.data
-        })
     },
 
     computed: {
@@ -107,6 +95,7 @@
     },
 
     components: {
+      Select,
       Footer,
       Sidebar
     },
