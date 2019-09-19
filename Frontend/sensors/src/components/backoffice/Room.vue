@@ -48,7 +48,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <button id="addRoom" class="moarButton">Add new room <strong>+</strong></button>
+                <button v-on:click="addRoom" class="moarButton">Add new room <strong>+</strong></button>
               </div>
             </div>
           </div>
@@ -86,6 +86,47 @@
         .then(response => {
           this.rooms = response.data
         });
+    },
+
+    methods: {
+      addRoom() {
+        swal({
+          title: 'Enter room name:',
+          input: 'text',
+          showCancelButton: true,
+          inputValidator: value => {
+            return new Promise(function (resolve, reject) {
+              if (value) {
+                resolve()
+              } else {
+                reject('You did not enter a name!')
+              }
+            });
+          }
+        }).then(name => {
+          this.$store.dispatch('addRoom', {
+            name: name
+          }).then(() => {
+            swal({
+              position: 'middle',
+              type: 'success',
+              title: 'Room craeted successfully! Please refresh the page to see the changes',
+              showConfirmButton: false,
+              timer: 3000,
+              width: '500px'
+            }).catch(swal.noop);
+          }).catch(() => {
+            swal({
+              position: 'middle',
+              type: 'error',
+              title: 'Something went wrong when creating a room!',
+              showConfirmButton: false,
+              timer: 2000,
+              width: '300px'
+            }).catch(swal.noop);
+          })
+        }).catch(swal.noop)
+      },
     },
 
     computed: {
