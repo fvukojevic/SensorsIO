@@ -26,6 +26,7 @@ func main() {
 	{
 		v2.GET("/getRooms", GetRooms)
 		v2.POST("/addRoom", AddRoom)
+		v2.POST("/deleteRoom", DeleteRoom)
 	}
 
 	v3 := router.Group("/waspmote")

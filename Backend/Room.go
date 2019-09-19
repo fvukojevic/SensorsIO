@@ -24,7 +24,7 @@ func AddRoom(c *gin.Context) {
 		throwStatusNotFound(c)
 	}
 
-	if err := db.First(&Room{}, "name = ?", room.Name).Error; err == nil {
+	if err := db.First(&Room{}, "name = ?", room.Name).Where("deleted_at is not null").Error; err == nil {
 		throwStatusInternalServerError("That room already exists", c)
 		return
 	}
@@ -36,4 +36,17 @@ func AddRoom(c *gin.Context) {
 	}
 
 	throwStatusOkWithMessage("Room created successfully", c)
+}
+
+func DeleteRoom(c *gin.Context) {
+	room := &Room{}
+	if err := c.BindJSON(&room); err != nil {
+		throwStatusNotFound(c)
+	}
+
+	if err := db.Delete(&room).Error; err != nil {
+		throwStatusInternalServerError("Could not delete room", c)
+	}
+
+	throwStatusOkWithMessage("Room deleted successfully", c)
 }
