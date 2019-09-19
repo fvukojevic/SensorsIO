@@ -25,6 +25,7 @@ func main() {
 	v2 := router.Group("/room")
 	{
 		v2.GET("/getRooms", GetRooms)
+		v2.POST("/addRoom", AddRoom)
 	}
 
 	v3 := router.Group("/waspmote")

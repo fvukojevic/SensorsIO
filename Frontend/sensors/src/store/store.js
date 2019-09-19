@@ -164,6 +164,20 @@ export const store = new Vuex.Store({
       })
     },
 
+    addRoom(context, name) {
+      return new Promise((resolve, reject) => {
+        axios.post('http://' + this.state.server + '/room/addRoom', {
+          name: name.name
+        })
+          .then(response => {
+            resolve(response)
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
+    },
+
     getWaspmotes() {
       return new Promise((resolve, reject) => {
         axios.get('http://' + this.state.server + '/waspmote/getWaspmotes')
