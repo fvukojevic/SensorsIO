@@ -115,11 +115,11 @@
               timer: 3000,
               width: '500px'
             }).catch(swal.noop);
-          }).catch(() => {
+          }).catch(error => {
             swal({
               position: 'middle',
               type: 'error',
-              title: 'Something went wrong when creating a room!',
+              title: error.toString(),
               showConfirmButton: false,
               timer: 2000,
               width: '300px'
