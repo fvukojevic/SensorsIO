@@ -20,9 +20,13 @@ func GetRooms(c *gin.Context) {
 
 func AddRoom(c *gin.Context) {
 	room := &Room{}
-
 	if err := c.BindJSON(&room); err != nil {
 		throwStatusNotFound(c)
+	}
+
+	if err := db.First(&Room{}, "name = ?", room.Name).Error; err == nil {
+		throwStatusInternalServerError("That room already exists", c)
+		return
 	}
 
 	if room.Name != "" {
