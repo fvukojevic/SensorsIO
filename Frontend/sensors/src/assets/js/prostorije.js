@@ -1,82 +1,11 @@
 $(document).ready(function () {
-    var serverName = localStorage.getItem("serverName");
-    $("#addRoom").click(function (e) {
-        e.preventDefault();
-        swal({
-            title: 'Unesite ime nove prostorije:',
-            input: 'text',
-            showCancelButton: true,
-            inputValidator: function (value) {
-                return new Promise(function (resolve, reject) {
-                    if (value) {
-                        resolve()
-                    } else {
-                        reject('Niste unijeli ime!')
-                    }
-                });
-            }
-        }).then(function (name) {
-            $.ajax({
-                url: 'http://' + serverName + '/index.php',
-                type: "POST",
-                data: {
-                    method: 'addNewRoom',
-                    name: name
-                },
-                dataType: "json",
-                success: function () {
-                    console.log("succes");
-                    setTimeout(function(){
-                        location.reload();                        
-                    }, 500);                    
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-        }).catch(swal.noop);
-    });
-
     function display(result) {
         result.data.forEach(room => {
-
-            //console.log(room);
             var row = $('<tr><td>' + room.name + '</td><td><select id="selectBoard' + room.id + '" class="selectBoard"><option selected="true" disabled="true">Odaberi pločicu:</option></select></td><td><button id="' + room.id + '" class="deleteRoom delButton btn-block" style="margin: 0px; padding: 8px 0;"><i class="fa fa-times" aria-hidden="true"></i></button></td><td><button id="' + room.id + '" class="addBoard moarButton" style="margin: 0px; padding: 8px 0;"><i class="fa fa-floppy-o" aria-hidden="true"></i></button></td></tr>');
 
             $("#tbody").append(row);
 
             getBoards(room.id);
-        });
-
-        $(".deleteRoom").click(function () {
-            var idR = this.id;
-            swal({
-                title: 'Jeste li sigurni da želitet izbrisat ovu sobu?',
-                type: 'error',
-                showCancelButton: true,
-                focusConfirm: false,
-                confirmButtonText: "Da, želim!",
-                cancelButtonText: "Ne želim!",
-            }).then(function () {
-                $.ajax({
-                    url: 'http://' + serverName + '/index.php',
-                    type: "POST",
-                    data: {
-                        method: 'deleteRoom',
-                        id: parseInt(idR)
-                    },
-                    dataType: "json",
-                    success: function (r) {
-                        setTimeout(function(){
-                            location.reload();                        
-                        }, 500); 
-                        console.log(r);
-                    },
-                    error: function (err) {
-                        console.log(err);
-                    }
-                });
-            }).catch(swal.noop);
         });
 
         $(".addBoard").click(function () {
@@ -133,18 +62,5 @@ $(document).ready(function () {
             }
         });
     }
-
-    $.ajax({
-        url: 'http://' + serverName + '/index.php?method=getAllRooms',
-        type: "GET",
-        dataType: "json",
-        success: function (result) {
-            console.log(result);
-            display(result);
-        },
-        error: function (err) {
-            console.log(err);
-        }
-    });
 
 });
