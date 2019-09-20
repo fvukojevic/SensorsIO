@@ -15,11 +15,7 @@ type Waspmote struct {
 func GetWaspmotes(c *gin.Context) {
 	var waspmotes []Waspmote
 
-	query := "SELECT * FROM waspmotes WHERE id_room is null"
-
-	if err := db.Debug().Raw(query).Scan(&waspmotes).Error; err != nil {
-		throwStatusNotFound(c)
-	}
+	db.Find(&waspmotes)
 
 	c.JSON(http.StatusOK, waspmotes)
 }

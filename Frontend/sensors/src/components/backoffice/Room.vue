@@ -92,7 +92,7 @@
             swal({
               position: 'middle',
               type: 'success',
-              title: 'Room craeted successfully! Please refresh the page to see the changes',
+              title: 'Room created successfully! Please refresh the page to see the changes',
               showConfirmButton: false,
               timer: 3000,
               width: '500px'
