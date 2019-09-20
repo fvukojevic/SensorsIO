@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar" data-color="blue" data-image="/src/assets/img/sidebar-4.jpg">
+  <div class="sidebar" :data-color="this.$store.state.theme.color" data-image="/src/assets/img/sidebar-4.jpg">
     <div class="sidebar-wrapper">
       <div class="logo">
         <router-link :to="{ name: 'dashboard'}">
@@ -10,32 +10,32 @@
       <ul class="nav">
         <li :class="{ active : currentPage('/dashboard')}">
           <router-link :to="{ name: 'dashboard'}">
-            <i class="pe-7s-graph"></i>
-            <p>Landing Page</p>
+            <i :style="{color: this.$store.state.theme.font_color}" class="pe-7s-graph"></i>
+            <p :style="{color: this.$store.state.theme.font_color}">Landing Page</p>
           </router-link>
         </li>
         <li :class="{ active : currentPage('/profile')}">
           <router-link :to="{ name: 'profile'}">
-              <i class="pe-7s-user"></i>
-              <p>User Profile</p>
+              <i :style="{color: this.$store.state.theme.font_color}" class="pe-7s-user"></i>
+              <p :style="{color: this.$store.state.theme.font_color}">User Profile</p>
           </router-link>
         </li>
         <li :class="{ active : currentPage('/rooms')}">
           <router-link :to="{ name: 'rooms'}">
-            <i class="pe-7s-home"></i>
-            <p>Rooms</p>
+            <i :style="{color: this.$store.state.theme.font_color}" class="pe-7s-home"></i>
+            <p :style="{color: this.$store.state.theme.font_color}">Rooms</p>
           </router-link>
         </li>
         <li>
           <a href="obavijesti.php">
-            <i class="pe-7s-news-paper"></i>
-            <p>Notifications</p>
+            <i :style="{color: this.$store.state.theme.font_color}" class="pe-7s-news-paper"></i>
+            <p :style="{color: this.$store.state.theme.font_color}">Notifications</p>
           </a>
         </li>
         <li :class="{ active : currentPage('/settings')}">
           <router-link :to="{ name: 'settings'}">
-            <i class="pe-7s-switch"></i>
-            <p>Settings</p>
+            <i :style="{color: this.$store.state.theme.font_color}" class="pe-7s-switch"></i>
+            <p :style="{color: this.$store.state.theme.font_color}">Settings</p>
           </router-link>
         </li>
       </ul>

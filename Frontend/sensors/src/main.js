@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import {store} from './store/store'
 import routes from './routes'
 
-import Master from "./components/layout/Master.vue";
+import Master from "./components/layout/Master.vue"
 
 Vue.use(VueRouter)
 

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import themes from "../themes"
 
 Vue.use(Vuex)
 
@@ -9,6 +10,7 @@ export const store = new Vuex.Store({
   state: {
     token: localStorage.getItem('access_token') || null,
     server: localStorage.getItem('serverName') || null,
+    theme: localStorage.getItem('theme') || themes.default,
   },
 
   getters: {
