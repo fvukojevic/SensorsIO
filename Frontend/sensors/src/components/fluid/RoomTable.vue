@@ -37,7 +37,7 @@
             swal({
                 position: 'middle',
                 type: 'success',
-                title: 'Room deleted successfully! Please refresh the page to see the changes',
+                title: 'Room deleted successfully!',
                 showConfirmButton: false,
                 timer: 3000,
                 width: '500px'
