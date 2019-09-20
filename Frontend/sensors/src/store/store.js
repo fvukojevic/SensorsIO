@@ -76,7 +76,8 @@ export const store = new Vuex.Store({
               resolve(response)
             })
             .catch(error => {
-              console.log(error)
+              localStorage.removeItem('access_token')
+              context.commit('destroyToken')
               reject(error)
             })
         })

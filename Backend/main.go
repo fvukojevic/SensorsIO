@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"os"
 )
 
 func main() {
@@ -34,7 +35,7 @@ func main() {
 		v3.GET("/getWaspmotes", GetWaspmotes)
 	}
 
-	router.Run(":8888")
+	_ = router.Run(":" + os.Getenv("SERVER_PORT"))
 }
 
 func CORSMiddleware() gin.HandlerFunc {
