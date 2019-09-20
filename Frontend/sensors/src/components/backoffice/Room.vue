@@ -47,6 +47,7 @@
   import Footer from '../layout/Footer.vue'
   import Sidebar from '../layout/Sidebar'
   import RoomTable from "../fluid/RoomTable"
+  import Vue from 'vue'
 
   export default {
     name: "Room",
@@ -89,6 +90,11 @@
             name: name
           }).then(response => {
             this.rooms.push(response.data)
+              for(var i=0;i<this.rooms.length;i++){
+                  if(this.rooms.DeletedAt){
+                      Vue.delete(this.rooms,i)
+                  }
+              }
             this.$store.dispatch('createSwal', {type: 'success', title: 'Room created succesfully', width: '300px'})
           }).catch(error => {
             this.$store.dispatch('createSwal', {type: 'error', title: error.toString(), width: '300px'})
