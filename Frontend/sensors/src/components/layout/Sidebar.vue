@@ -32,11 +32,11 @@
             <p>Notifications</p>
           </a>
         </li>
-        <li>
-          <a href="postavke.php">
+        <li :class="{ active : currentPage('/settings')}">
+          <router-link :to="{ name: 'settings'}">
             <i class="pe-7s-switch"></i>
             <p>Settings</p>
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>

@@ -3,6 +3,7 @@ import Dashboard from './components/backoffice/Dashboard'
 import Logout from './components/auth/Logout'
 import Profile from './components/backoffice/Profile'
 import Room from './components/backoffice/Room'
+import Settings from './components/backoffice/Settings'
 
 const routes = [
   {
@@ -41,7 +42,15 @@ const routes = [
     path: '/logout',
     name: 'logout',
     component: Logout,
-  }
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: Settings,
+    meta: {
+      requiresAuth: true,
+    }
+  },
 ]
 
 export default routes
