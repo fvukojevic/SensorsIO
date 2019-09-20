@@ -30,15 +30,7 @@
               this.$store.dispatch('deleteRoom', {
                   id:id
               }).then(() => {
-                  swal({
-                          position: 'middle',
-                          type: 'success',
-                          title: 'Room deleted successfully!',
-                          showConfirmButton: false,
-                          timer: 3000,
-                          width: '500px'
-                      }
-                  ).catch(swal.noop);
+                this.$store.dispatch('createSwal', {type: 'success', title: 'Room deleted successfully', width: '300px'})
               }).catch(error => {
                   console.log(error)
               })

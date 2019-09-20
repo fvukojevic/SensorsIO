@@ -78,7 +78,7 @@
                       Vue.delete(this.rooms,i)
                   }
               }
-            this.$store.dispatch('createSwal', {type: 'success', title: 'Room created succesfully', width: '300px'})
+            this.$store.dispatch('createSwal', {type: 'success', title: 'Room created successfully', width: '300px'})
           }).catch(error => {
             this.$store.dispatch('createSwal', {type: 'error', title: error.toString(), width: '300px'})
           })

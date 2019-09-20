@@ -10,7 +10,7 @@ export const store = new Vuex.Store({
   state: {
     token: localStorage.getItem('access_token') || null,
     server: localStorage.getItem('serverName') || null,
-    theme: localStorage.getItem('theme') || themes.default,
+    theme: themes[localStorage.getItem('theme')] || themes['default'],
   },
 
   getters: {
