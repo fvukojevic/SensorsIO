@@ -170,14 +170,7 @@
               user: this.user
             })
               .then(() => {
-                swal({
-                  position: 'middle',
-                  type: 'success',
-                  title: 'Profile edited successfully!',
-                  showConfirmButton: false,
-                  timer: 2000,
-                  width: '300px'
-                }).catch(swal.noop);
+                this.$store.dispatch('createSwal', {type: 'success', title: 'Profile edited successfully!', width: '300px'})
               }).catch(error => {
               alert(error)
             })
@@ -188,27 +181,12 @@
               user: this.user
             })
               .then(() => {
-                swal({
-                  position: 'middle',
-                  type: 'success',
-                  title: 'Password changed successfully!',
-                  showConfirmButton: false,
-                  timer: 2000,
-                  width: '300px'
-                }).catch(swal.noop);
-              }).catch(() => {
-                this.user.oldPassword = '',
-                this.user.newPassword = '',
-                this.user.confirmPassword = '',
-
-                swal({
-                  position: 'middle',
-                  type: 'error',
-                  title: 'Passwords don\'t match',
-                  showConfirmButton: false,
-                  timer: 2000,
-                  width: '300px'
-                })
+                this.$store.dispatch('createSwal', {type: 'success', title: 'Password changed successfully', width: '300px'})
+              }).catch(error => {
+                  this.user.oldPassword = '',
+                  this.user.newPassword = '',
+                  this.user.confirmPassword = '',
+                  this.$store.dispatch('createSwal', {type: 'error', title: error.toString(), width: '300px'})
               })
           },
 

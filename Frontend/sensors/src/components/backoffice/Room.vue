@@ -89,23 +89,9 @@
             name: name
           }).then(response => {
             this.rooms.push(response.data)
-            swal({
-              position: 'middle',
-              type: 'success',
-              title: 'Room created successfully! Please refresh the page to see the changes',
-              showConfirmButton: false,
-              timer: 3000,
-              width: '500px'
-            }).catch(swal.noop);
+            this.$store.dispatch('createSwal', {type: 'success', title: 'Room created succesfully', width: '300px'})
           }).catch(error => {
-            swal({
-              position: 'middle',
-              type: 'error',
-              title: error.toString(),
-              showConfirmButton: false,
-              timer: 2000,
-              width: '300px'
-            }).catch(swal.noop);
+            this.$store.dispatch('createSwal', {type: 'error', title: error.toString(), width: '300px'})
           })
         })
       },

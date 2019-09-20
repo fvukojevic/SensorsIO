@@ -205,5 +205,17 @@ export const store = new Vuex.Store({
       })
     },
 
-  }
+    createSwal(context, data) {
+       swal({
+        position: data.position,
+        type: data.type,
+        title: data.title,
+        showConfirmButton: data.showConfirmButton || false,
+        showCancelButton: data.showCancelButton || false,
+        timer: data.timer || '2000',
+        width: data.width || '200px'
+      }).catch(swal.noop);
+    }
+  },
+
 })
