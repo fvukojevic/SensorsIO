@@ -35,7 +35,7 @@ func AddRoom(c *gin.Context) {
 		}
 	}
 
-	throwStatusOkWithMessage("Room created successfully", c)
+	c.JSON(http.StatusOK, room)
 }
 
 func DeleteRoom(c *gin.Context) {
@@ -48,5 +48,5 @@ func DeleteRoom(c *gin.Context) {
 		throwStatusInternalServerError("Could not delete room", c)
 	}
 
-	throwStatusOkWithMessage("Room deleted successfully", c)
+	c.JSON(http.StatusOK, room)
 }
