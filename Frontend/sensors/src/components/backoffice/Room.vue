@@ -107,7 +107,8 @@
         }).then(name => {
           this.$store.dispatch('addRoom', {
             name: name
-          }).then(() => {
+          }).then(response => {
+            this.rooms.push(response.data)
             swal({
               position: 'middle',
               type: 'success',
@@ -126,7 +127,7 @@
               width: '300px'
             }).catch(swal.noop);
           })
-        }).catch(swal.noop)
+        })
       },
 
       deleteRoom(id) {
@@ -140,7 +141,17 @@
             showConfirmButton: false,
             timer: 3000,
             width: '500px'
-          }).catch(swal.noop);
+          }
+          ).catch(swal.noop);
+          let destArr=[];
+          Object.keys(this.rooms).forEach(key => {
+            if(this.rooms[key].ID !== id) {
+              destArr.push(this.rooms[key])
+            }
+          })
+          this.rooms = destArr
+        }).catch(error => {
+          console.log(error)
         })
       }
     },
