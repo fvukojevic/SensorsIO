@@ -1,6 +1,7 @@
 const themes = [];
 
 themes['default'] = {
+  name:'default',
   color: 'blue',
   font_color: 'white',
   nav_color: 'white',
@@ -8,6 +9,7 @@ themes['default'] = {
 }
 
 themes['default_red'] = {
+  name:'default_red',
   color: 'red',
   font_color: 'white',
   nav_color: 'white',

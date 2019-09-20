@@ -20,6 +20,9 @@ export const store = new Vuex.Store({
     serverName(state) {
       return state.server
     },
+    getTheme(state) {
+      return state.theme
+    }
   },
 
   mutations: {
