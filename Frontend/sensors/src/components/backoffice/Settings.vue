@@ -30,8 +30,8 @@
               <div class="card cardPadded">
                 <h4 class="title">Change the theme: </h4>
                 <br>
-                <select name="themeSelect" class="selectBoard">
-                  <option v-for="theme in themesArray" :disabled="theme.name === $store.getters.getTheme.name">
+                <select name="themeSelect" class="selectBoard" v-on:change="changeTheme()" v-model="key">
+                  <option v-for="theme in themesArray" :value="theme.name" :disabled="theme.name === $store.getters.getTheme.name">
                     {{ theme.name }}
                   </option>
                 </select>
@@ -70,7 +70,8 @@
 
     data() {
       return {
-        themesArray : []
+        themesArray: [],
+        key: ""
       }
     },
 
@@ -90,10 +91,12 @@
       serverInput() {
         this.$store.dispatch('insertServer')
       },
+
+      changeTheme() {
+        this.$store.dispatch('changeTheme', {
+          name: this.key
+        })
+      },
     }
   }
 </script>
-
-<style scoped>
-
-</style>
