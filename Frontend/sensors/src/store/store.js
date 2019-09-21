@@ -36,6 +36,10 @@ export const store = new Vuex.Store({
 
     insertServer(state, serverName) {
       state.server =  serverName
+    },
+
+    changeTheme(state, themeName) {
+      state.theme = themes[themeName]
     }
   },
 
@@ -111,6 +115,14 @@ export const store = new Vuex.Store({
         context.commit('insertServer', serverName)
         location.reload();
       }).catch(swal.noop);
+    },
+
+    changeTheme(context, data) {
+      const theme = data.name
+
+      localStorage.setItem('theme', theme)
+      context.commit('changeTheme', theme)
+      location.reload()
     },
 
     getUser(context) {
