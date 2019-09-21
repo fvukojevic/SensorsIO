@@ -26,6 +26,21 @@
           RoomTableRow,
       },
       methods: {
+          addWaspmoteToRoom(idWaspmote,idRoom) {
+              this.$store.dispatch('addWaspmoteToRoom', {
+                  idWaspmote: idWaspmote,
+                  idRoom: idRoom
+              }).then(() => {
+                  swal({
+                      position: 'middle',
+                      type:'success',
+                      title: ' Room added successfully!',
+                  });
+          }).catch(error =>{
+              console.log(error)
+    })
+
+          },
           deleteRoom(id) {
               this.$store.dispatch('deleteRoom', {
                   id:id
