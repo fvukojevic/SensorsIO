@@ -1,6 +1,6 @@
 <template>
   <select class="selectBoard" v-model="wasp" v-on:change="handleChange()">
-    <option  disabled :value="null">Choose waspomote:</option>
+    <option disabled :value="null">Choose waspomote:</option>
     <option v-for="waspmote in waspomotes" :disabled="waspmote.id_room !== 0" :value="waspmote.ID" >
       {{ waspmote.name }}
     </option>

@@ -1,6 +1,6 @@
 <template>
-  <div class="sidebar" :data-color="this.$store.state.theme.color" data-image="/src/assets/img/sidebar-4.jpg">
-    <div class="sidebar-wrapper">
+  <div class="sidebar" data-image="/src/assets/img/sidebar-4.jpg">
+    <div class="sidebar-wrapper" :style="{background: this.$store.state.theme.color}">
       <div class="logo">
         <router-link :to="{ name: 'dashboard'}">
           <img class="img-responsive" src="/src/assets/img/logo.png"/>
