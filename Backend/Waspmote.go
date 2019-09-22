@@ -11,7 +11,6 @@ type Waspmote struct {
 	gorm.Model
 	Name   string `json:"name"`
 	IdRoom int    `json:"id_room"`
-	Id     int    `json:"id"`
 }
 
 func GetWaspmotes(c *gin.Context) {
@@ -33,7 +32,7 @@ func AddWaspmoteToRoom(c *gin.Context) {
 
 func updateWaspmote(waspmote Waspmote) {
 	updateWaspmotesQuery := "UPDATE waspmotes SET id_room = ?  WHERE id = ?"
-	if err := db.Exec(updateWaspmotesQuery, waspmote.IdRoom, waspmote.Id).Error; err != nil {
+	if err := db.Exec(updateWaspmotesQuery, waspmote.IdRoom, waspmote.ID).Error; err != nil {
 		log.Println(err)
 	}
 }

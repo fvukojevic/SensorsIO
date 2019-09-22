@@ -14,8 +14,10 @@
 
   export default {
       name: "RoomTableRow",
-      data:{
-          wasp:null
+      data() {
+        return {
+          wasp: null
+        }
       },
       props: {
           room: Object,
@@ -26,7 +28,7 @@
       methods:{
           addWaspmoteToRoom(idWaspmote, idRoom){
               this.$parent.addWaspmoteToRoom(idWaspmote, idRoom)
-  },
+          },
           handleChange(wasp){
               this.wasp = wasp;
           }

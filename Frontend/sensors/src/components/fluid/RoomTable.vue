@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody id="tbody">
-    <RoomTableRow v-for="room in rooms"  :room ="room" :key="room.ID"/>
+    <RoomTableRow v-for="room in rooms" :room ="room"/>
     </tbody>
   </table>
 </template>
@@ -20,7 +20,7 @@
   export default {
       name: "RoomTable",
       props: {
-        rooms: Array,
+        rooms: Object,
       },
       components: {
           RoomTableRow,
@@ -31,23 +31,20 @@
                   idWaspmote: idWaspmote,
                   idRoom: idRoom
               }).then(() => {
-                  swal({
-                      position: 'middle',
-                      type:'success',
-                      title: ' Room added successfully!',
-                  });
+                  this.$store.dispatch('createSwal', {type: 'success', title: 'Waspmote added successfully', width: '300px'})
           }).catch(error =>{
-              console.log(error)
-    })
+                this.$store.dispatch('createSwal', {type: 'error', title: error.toString(), width: '300px'})
+            })
 
           },
+
           deleteRoom(id) {
               this.$store.dispatch('deleteRoom', {
                   id:id
               }).then(() => {
                 this.$store.dispatch('createSwal', {type: 'success', title: 'Room deleted successfully', width: '300px'})
               }).catch(error => {
-                  console.log(error)
+                this.$store.dispatch('createSwal', {type: 'error', title: error.toString(), width: '300px'})
               })
               for(var i = 0; i< this.rooms.length;i++){
                   if(this.rooms[i].ID === id){
@@ -58,7 +55,3 @@
       },
     }
 </script>
-
-<style scoped>
-
-</style>
