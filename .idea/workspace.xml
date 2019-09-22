@@ -4,15 +4,13 @@
     <list default="true" id="18cd89f8-e6bd-4b08-a7fe-a0460f2c9a7a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/assets/css/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/assets/css/demo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Room.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Room.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Settings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Settings.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/components/fluid/RoomTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/components/fluid/RoomTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/components/fluid/RoomTableRow.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/components/fluid/RoomTableRow.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/components/fluid/Select.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/components/fluid/Select.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/components/layout/Navigation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/components/layout/Navigation.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/components/layout/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/components/layout/Sidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/themes.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/themes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/assets/js/obavijesti.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/dashboard/Dashboard.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Room.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/room/Room.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/components/fluid/RoomTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/room/room_helpers/RoomTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/components/fluid/RoomTableRow.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/room/room_helpers/RoomTableRow.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/components/fluid/Select.vue" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/room/room_helpers/Select.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/sensors/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/sensors/src/routes.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,69 +20,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Settings.vue">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/room/Room.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="74" column="24" lean-forward="true" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
+            <state relative-caret-position="17">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
               <folding>
-                <element signature="n#style#0;n#h3#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h3#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#744#788#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/layout/Master.vue">
+        <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/room/room_helpers/RoomTable.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
-              <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/layout/Footer.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="65" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/fluid/RoomTable.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-77">
-              <caret line="7" column="78" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="78" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/fluid/RoomTableRow.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="65" selection-start-line="2" selection-start-column="65" selection-end-line="2" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/fluid/Select.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Profile.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="93" selection-start-line="11" selection-start-column="93" selection-end-line="11" selection-end-column="93" />
+              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -92,7 +45,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/layout/Sidebar.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
+            <state relative-caret-position="270">
               <caret line="18" column="69" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="69" />
             </state>
           </provider>
@@ -103,6 +56,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="600">
               <caret line="40" selection-start-line="40" selection-end-line="42" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/room/room_helpers/RoomTableRow.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-26">
+              <caret line="2" column="65" selection-start-line="2" selection-start-column="65" selection-end-line="2" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -139,6 +101,7 @@
       <find>nav</find>
       <find>.sidebar .nav</find>
       <find>this.wasp</find>
+      <find>obavijesti</find>
       <find>card</find>
     </findStrings>
   </component>
@@ -186,13 +149,16 @@
         <option value="$PROJECT_DIR$/Frontend/sensors/src/components/layout/Sidebar.vue" />
         <option value="$PROJECT_DIR$/Frontend/sensors/src/components/layout/Navigation.vue" />
         <option value="$PROJECT_DIR$/Frontend/sensors/src/themes.js" />
-        <option value="$PROJECT_DIR$/Frontend/sensors/src/components/fluid/RoomTable.vue" />
         <option value="$PROJECT_DIR$/Frontend/sensors/src/components/fluid/Select.vue" />
         <option value="$PROJECT_DIR$/Frontend/sensors/src/components/fluid/RoomTableRow.vue" />
         <option value="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Settings.vue" />
         <option value="$PROJECT_DIR$/Frontend/sensors/src/assets/css/theme.css" />
         <option value="$PROJECT_DIR$/Frontend/sensors/src/components/layout/Master.vue" />
         <option value="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Profile.vue" />
+        <option value="$PROJECT_DIR$/Frontend/sensors/src/assets/js/bootstrap-notify.js" />
+        <option value="$PROJECT_DIR$/Frontend/sensors/src/assets/js/sweetalert2.all.js" />
+        <option value="$PROJECT_DIR$/Frontend/sensors/src/components/fluid/RoomTable.vue" />
+        <option value="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/room/Room.vue" />
       </list>
     </option>
   </component>
@@ -261,6 +227,15 @@
               <item name="Frontend" type="462c0819:PsiDirectoryNode" />
               <item name="sensors" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SensorsIO" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SensorsIO" type="462c0819:PsiDirectoryNode" />
+              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="sensors" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -279,7 +254,8 @@
               <item name="sensors" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="fluid" type="462c0819:PsiDirectoryNode" />
+              <item name="backoffice" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SensorsIO" type="b2602c69:ProjectViewProjectNode" />
@@ -328,8 +304,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Backend" />
-      <recent name="$PROJECT_DIR$/Frontend/sensors/src/components/auth" />
+      <recent name="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/settings" />
+      <recent name="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/profile" />
+      <recent name="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/dashboard" />
+      <recent name="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/room/room_helpers" />
+      <recent name="$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/room" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -422,7 +401,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="823" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19098713" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -437,7 +415,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32953367" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3378933" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.3378933" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -482,7 +460,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added Login.vue without logic" />
     <MESSAGE value="added cors policy in main.go and retrieve token in vue" />
     <MESSAGE value="install vue-router" />
     <MESSAGE value="added dashboard component" />
@@ -507,54 +484,10 @@
     <MESSAGE value="small fixes" />
     <MESSAGE value="settings for themes" />
     <MESSAGE value="typos" />
-    <option name="LAST_COMMIT_MESSAGE" value="typos" />
+    <MESSAGE value="proof of concept for themes" />
+    <option name="LAST_COMMIT_MESSAGE" value="proof of concept for themes" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/assets/js/sweetalert2.all.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="1391" selection-start-line="1391" selection-end-line="1391" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/assets/js/profil.js" />
-    <entry file="file:///usr/local/go/src/runtime/panic.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="81" selection-start-line="81" selection-end-line="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/layout/Select.vue" />
-    <entry file="file://$PROJECT_DIR$/Backend/helpers.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/layout/RoomTable.vue" />
-    <entry file="file://$PROJECT_DIR$/../github.com/jinzhu/gorm/scope.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13001">
-          <caret line="877" column="20" selection-start-line="877" selection-start-column="20" selection-end-line="877" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../github.com/jinzhu/gorm/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/go/src/os/env.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1455">
-          <caret line="100" column="5" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../github.com/joho/godotenv/godotenv_test.go">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -663,13 +596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/sensors/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="7" selection-start-line="41" selection-start-column="1" selection-end-line="41" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/auth/Logout.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -721,7 +647,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Dashboard.vue">
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/dashboard/Dashboard.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
@@ -733,16 +659,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/assets/img/profile_cover.jpg">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Room.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/assets/css/demo.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -765,13 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/fluid/RoomTable.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-77">
-          <caret line="7" column="78" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/themes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -779,10 +688,113 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/fluid/Select.vue">
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/room/room_helpers/Select.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/layout/Master.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Settings.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="74" column="24" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#h3#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h3#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/assets/js/obavijesti.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1257" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/assets/js/demo.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/assets/js/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="26" column="56" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/assets/js/chartist.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/assets/logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/assets/js/dataOld.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-333" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/assets/js/bootstrap-select.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#133#139#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/assets/js/sweetalert2.all.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/assets/js/bootstrap-notify.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="404" lean-forward="true" selection-end-line="404" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Profile.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="93" selection-start-line="11" selection-start-column="93" selection-end-line="11" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/room/room_helpers/RoomTable.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -795,40 +807,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/layout/Sidebar.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
+        <state relative-caret-position="270">
           <caret line="18" column="69" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="69" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/layout/Master.vue">
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/room/room_helpers/RoomTableRow.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="18" lean-forward="true" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/fluid/RoomTableRow.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
+        <state relative-caret-position="-26">
           <caret line="2" column="65" selection-start-line="2" selection-start-column="65" selection-end-line="2" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Settings.vue">
+    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/room/Room.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="74" column="24" lean-forward="true" selection-start-line="74" selection-start-column="24" selection-end-line="74" selection-end-column="24" />
+        <state relative-caret-position="17">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
-            <element signature="n#style#0;n#h3#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h3#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#744#788#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Frontend/sensors/src/components/backoffice/Profile.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="93" selection-start-line="11" selection-start-column="93" selection-end-line="11" selection-end-column="93" />
         </state>
       </provider>
     </entry>

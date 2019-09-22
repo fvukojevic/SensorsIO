@@ -114,9 +114,9 @@
 </template>
 
 <script>
-  import Footer from '../layout/Footer.vue'
-  import Sidebar from '../layout/Sidebar'
-  import Navigation from '../layout/Navigation'
+  import Footer from '../../layout/Footer.vue'
+  import Sidebar from '../../layout/Sidebar'
+  import Navigation from '../../layout/Navigation'
 
   export default {
         name: "Profile",

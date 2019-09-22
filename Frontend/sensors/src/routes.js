@@ -1,9 +1,9 @@
 import Login from './components/auth/Login'
-import Dashboard from './components/backoffice/Dashboard'
+import Dashboard from './components/backoffice/dashboard/Dashboard'
 import Logout from './components/auth/Logout'
-import Profile from './components/backoffice/Profile'
-import Room from './components/backoffice/Room'
-import Settings from './components/backoffice/Settings'
+import Profile from './components/backoffice/profile/Profile'
+import Room from './components/backoffice/room/Room'
+import Settings from './components/backoffice/settings/Settings'
 
 const routes = [
   {
