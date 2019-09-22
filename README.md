@@ -4,6 +4,8 @@ Recreating and existing project done in vanilla PHP and Ajax to Go and Vue.js
 
 Original project: https://github.com/galion96/PiiS
 
+*This app is about smart sensor network based on ZigBee technology and GSM/GPRS network. Combined with smart home design which uses the described hardware, ZigBee wireless sensors network can in real time collect the values of sensor parameters*
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
