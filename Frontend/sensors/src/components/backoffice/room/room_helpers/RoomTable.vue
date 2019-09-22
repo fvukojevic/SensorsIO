@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import RoomTableRow from '../fluid/RoomTableRow'
+    import RoomTableRow from './RoomTableRow'
     import Vue from 'vue'
   export default {
       name: "RoomTable",

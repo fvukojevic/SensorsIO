@@ -56,10 +56,10 @@
 </template>
 
 <script>
-  import Footer from '../layout/Footer.vue'
-  import Sidebar from '../layout/Sidebar'
-  import Navigation from '../layout/Navigation'
-  import themes from '../../themes'
+  import Footer from '../../layout/Footer.vue'
+  import Sidebar from '../../layout/Sidebar'
+  import Navigation from '../../layout/Navigation'
+  import themes from '../../../themes'
 
   export default {
     name: "Settings",

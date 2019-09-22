@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import Select from '../fluid/Select'
+    import Select from './Select'
 
   export default {
       name: "RoomTableRow",

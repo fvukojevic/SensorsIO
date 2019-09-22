@@ -28,10 +28,10 @@
 </template>
 
 <script>
-  import Footer from '../layout/Footer.vue'
-  import Sidebar from '../layout/Sidebar'
-  import RoomTable from "../fluid/RoomTable"
-  import Navigation from '../layout/Navigation'
+  import Footer from '../../layout/Footer.vue'
+  import Sidebar from '../../layout/Sidebar'
+  import RoomTable from "./room_helpers/RoomTable"
+  import Navigation from '../../layout/Navigation'
   import Vue from 'vue'
 
   export default {
