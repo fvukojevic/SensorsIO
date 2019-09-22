@@ -36,7 +36,7 @@ func main() {
 		v3.POST("/addWaspmoteToRoom", AddWaspmoteToRoom)
 	}
 
-	_ = router.Run(":" + os.Getenv("SERVER_PORT"))
+	_ = router.Run(":" + os.Getenv("GO_PORT"))
 }
 
 func CORSMiddleware() gin.HandlerFunc {
