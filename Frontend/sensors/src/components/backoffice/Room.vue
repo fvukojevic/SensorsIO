@@ -9,9 +9,11 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
-              <div class="card" style="padding: 15px">
+              <div class="card" style="padding: 15px" :style="{background: this.$store.state.theme.card}">
                <RoomTable :rooms="this.rooms"/>
-                <button v-on:click="addRoom" class="moarButton">Add new room <strong>+</strong></button>
+                <button v-on:click="addRoom" class="moarButton" :style="{background: this.$store.state.theme.button}">
+                  Add new room <strong>+</strong>
+                </button>
               </div>
             </div>
           </div>

@@ -9,36 +9,36 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
-              <div class="card card-user">
+              <div class="card card-user" :style="{background: this.$store.state.theme.card}">
                 <div class="image">
                   <img src="/src/assets/img/profile_cover.jpg" />
                 </div>
                 <div class="content">
                   <div class="author">
                     <img class="avatar border-gray" src="/src/assets/img/face-2.jpg" alt="..."/>
-                    <h3 id="headFullName">{{ user.username }}</h3>
+                    <h3 :style="{color: this.$store.state.theme.card_font_color}" id="headFullName">{{ user.username }}</h3>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="col-md-12">
-              <div class="card">
+              <div class="card" :style="{background: this.$store.state.theme.card}">
                 <div class="header">
-                  <h4 class="title">Edit profile</h4>
+                  <h4 :style="{color: this.$store.state.theme.card_font_color}" class="title">Edit profile</h4>
                 </div>
                 <div class="content">
                   <form @submit.prevent="updateUser">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label>Username</label>
+                          <label :style="{color: this.$store.state.theme.card_font_color}">Username</label>
                           <input id="formUsername" type="text" class="form-control" v-model="user.username" required="">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label>Email address</label>
+                          <label :style="{color: this.$store.state.theme.card_font_color}">Email address</label>
                           <input id="formEmail" type="email" class="form-control" v-model="user.email"required="">
                         </div>
                       </div>
@@ -46,19 +46,21 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label>Name</label>
+                          <label :style="{color: this.$store.state.theme.card_font_color}">Name</label>
                           <input id="formName" type="text" class="form-control" v-model="user.name"required="">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label>Lastname</label>
+                          <label :style="{color: this.$store.state.theme.card_font_color}">Lastname</label>
                           <input id="formSurname" type="text" class="form-control" v-model="user.lastname" required="">
                         </div>
                       </div>
                     </div>
                     <hr>
-                    <button type="submit" class="moarButton">Save changes</button>
+                    <button type="submit" class="moarButton" :style="{background: this.$store.state.theme.button}">
+                      Save changes
+                    </button>
                     <div class="clearfix"></div>
                   </form>
                 </div>
@@ -66,34 +68,36 @@
             </div>
 
             <div class="col-md-12">
-              <div class="card">
+              <div class="card" :style="{background: this.$store.state.theme.card}">
                 <div class="header">
-                  <h4 class="title">Change password</h4>
+                  <h4 :style="{color: this.$store.state.theme.card_font_color}" class="title">Change password</h4>
                 </div>
                 <div class="content">
                   <form @submit.prevent="updatePassword">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label>Old password</label>
+                          <label :style="{color: this.$store.state.theme.card_font_color}">Old password</label>
                           <input id="formOldPassword" type="password" class="form-control" v-model="user.oldPassword" required="">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label>New password</label>
+                          <label :style="{color: this.$store.state.theme.card_font_color}">New password</label>
                           <input id="formNewPassword" type="password" class="form-control" v-model="user.newPassword" required="">
                         </div>
                       </div>
                       <div class="col-md-6 col-md-offset-3">
                         <div class="form-group">
-                          <label>Reenter password</label>
+                          <label :style="{color: this.$store.state.theme.card_font_color}">Reenter password</label>
                           <input id="formConfirmPassword" type="password" class="form-control" v-model="user.confirmPassword" required="">
                         </div>
                       </div>
                     </div>
                     <hr>
-                    <button type="submit" class="moarButton">Change password</button>
+                    <button type="submit" class="moarButton" :style="{background: this.$store.state.theme.button}">
+                      Change password
+                    </button>
                     <div class="clearfix"></div>
                   </form>
                 </div>
@@ -126,7 +130,7 @@
               oldPassword: '',
               newPassword: '',
               confirmPassword: '',
-            }
+            },
           }
         },
         created() {

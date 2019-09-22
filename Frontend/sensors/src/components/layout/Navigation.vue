@@ -9,11 +9,15 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand hidden-xl hidden-lg hidden-md" href="#"><span class="logo-style">sensor.io</span> / {{name}}</a>
-        <a class="navbar-brand hidden-xs hidden-sm" href="#">{{name}}</a>
+        <a class="navbar-brand hidden-xs hidden-sm" :style="{color: this.$store.state.theme.nav_font_color}" href="#">{{name}}</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li :style="{color: this.$store.state.theme.font_color}" v-if="loggedIn"><router-link :to="{ name: 'logout'}">Logout</router-link></li>
+          <li v-if="loggedIn">
+            <router-link :style="{color: this.$store.state.theme.nav_font_color}" :to="{ name: 'logout'}">
+              Logout
+            </router-link>
+          </li>
         </ul>
       </div>
     </div>

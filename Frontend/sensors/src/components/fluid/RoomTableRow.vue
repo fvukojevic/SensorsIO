@@ -1,11 +1,11 @@
 <template>
   <tr>
-    <td> {{this.room.name}}</td>
+    <td :style="{color: this.$store.state.theme.card_font_color}"> {{this.room.name}}</td>
     <td>
       <Select :room-id="this.room.ID"/>
     </td>
-    <td><button  v-on:click="$parent.deleteRoom(room.ID)" class="delButton btn-block" style="margin: 0px; padding: 8px 0;"><i class="fa fa-times" aria-hidden="true"></i></button></td>
-    <td><button  v-on:click="addWaspmoteToRoom(wasp,room.ID)" class="addBoard moarButton" style="margin: 0px; padding: 8px 0;"><i class="fa fa-floppy-o" aria-hidden="true"></i></button></td>
+    <td><button v-on:click="$parent.deleteRoom(room.ID)" class="delButton btn-block" style="margin: 0px; padding: 8px 0;"><i class="fa fa-times" aria-hidden="true"></i></button></td>
+    <td><button v-on:click="addWaspmoteToRoom(wasp,room.ID)" class="addBoard moarButton" style="margin: 0px; padding: 8px 0;"><i class="fa fa-floppy-o" aria-hidden="true"></i></button></td>
   </tr>
 </template>
 
