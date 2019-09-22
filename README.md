@@ -50,4 +50,10 @@ If your .env file is correct, compiling the Go project should say that it is lis
 
 When it comes to Frontend side, it's a lot easier. Only thing required is to go inside the `Frontend/sensors` and inside the terminal type `npm install`. That will install all dependencies in package.json file. You only have to run that command once, and/or when adding new packages.
 
-Last thing is to run `npm run dev` inside the same folder and the app should start.
+Last thing is to run `npm run dev` inside the same folder and the app will start.
+
+## Authors
+
+* **Ferdo Vukojević** - *Initial work* - [fvukojevic](https://github.com/fvukojevic)
+* **Filip Galić** - *Initial work* - [galion96](https://github.com/galion96)
+
