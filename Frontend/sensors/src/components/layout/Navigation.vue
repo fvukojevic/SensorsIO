@@ -1,5 +1,5 @@
 <template>
-  <nav :style="{background: this.$store.state.theme.nav_color}" class="navbar navbar-default navbar-fixed">
+  <nav :style="this.$parent.$parent.navColor" class="navbar navbar-default navbar-fixed">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
@@ -9,12 +9,12 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand hidden-xl hidden-lg hidden-md" href="#"><span class="logo-style">sensor.io</span> / {{name}}</a>
-        <a class="navbar-brand hidden-xs hidden-sm" :style="{color: this.$store.state.theme.nav_font_color}" href="#">{{name}}</a>
+        <a class="navbar-brand hidden-xs hidden-sm" :style="this.$parent.$parent.navFontColor" href="#">{{name}}</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li v-if="loggedIn">
-            <router-link :style="{color: this.$store.state.theme.nav_font_color}" :to="{ name: 'logout'}">
+            <router-link :style="this.$parent.$parent.navFontColor" :to="{ name: 'logout'}">
               Logout
             </router-link>
           </li>

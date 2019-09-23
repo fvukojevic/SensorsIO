@@ -9,19 +9,19 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-6">
-              <div class="card cardPadded" :style="{background: this.$store.state.theme.card}">
-                <h4 :style="{color: this.$store.state.theme.card_font_color}" class="title">Change the server IP: </h4>
+              <div class="card cardPadded" :style="this.$parent.cardColor">
+                <h4 :style="this.$parent.cardFontColor" class="title">Change the server IP: </h4>
                 <br>
-                <button v-on:click="serverInput" class="moarButton" :style="{background: this.$store.state.theme.button}">
+                <button v-on:click="serverInput" class="moarButton" :style="this.$parent.buttonColor">
                   Change server
                 </button>
               </div>
             </div>
             <div class="col-md-6">
-              <div class="card cardPadded" :style="{background: this.$store.state.theme.card}">
-                <h4 :style="{color: this.$store.state.theme.card_font_color}" class="title">Current server: </h4>
+              <div class="card cardPadded" :style="this.$parent.cardColor">
+                <h4 :style="this.$parent.cardFontColor" class="title">Current server: </h4>
                 <hr>
-                <h3 style="word-break: break-all" :style="{color: this.$store.state.theme.card_font_color}" class="title">{{this.$store.getters.serverName}}</h3>
+                <h3 style="word-break: break-all" :style="this.$parent.cardFontColor" class="title">{{this.$store.getters.serverName}}</h3>
               </div>
             </div>
           </div>
@@ -29,8 +29,8 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-6">
-              <div class="card cardPadded" :style="{background: this.$store.state.theme.card}">
-                <h4 :style="{color: this.$store.state.theme.card_font_color}" class="title">Change the theme: </h4>
+              <div class="card cardPadded" :style="this.$parent.cardColor">
+                <h4 :style="this.$parent.cardFontColor" class="title">Change the theme: </h4>
                 <br>
                 <select name="themeSelect" class="selectBoard" v-on:change="changeTheme()" v-model="key">
                   <option v-for="theme in themesArray" :value="theme.name" :disabled="theme.name === $store.getters.getTheme.name">
@@ -40,10 +40,10 @@
               </div>
             </div>
             <div class="col-md-6">
-              <div class="card cardPadded" :style="{background: this.$store.state.theme.card}">
-                <h4 :style="{color: this.$store.state.theme.card_font_color}" class="title">Current theme: </h4>
+              <div class="card cardPadded" :style="this.$parent.cardColor">
+                <h4 :style="this.$parent.cardFontColor" class="title">Current theme: </h4>
                 <hr>
-                <h3 style="word-break: break-all;" :style="{color: this.$store.state.theme.card_font_color}" class="title">{{this.getTheme}}</h3>
+                <h3 style="word-break: break-all;" :style="this.$parent.cardFontColor" class="title">{{this.getTheme}}</h3>
               </div>
             </div>
           </div>

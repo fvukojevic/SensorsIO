@@ -9,36 +9,36 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
-              <div class="card card-user" :style="{background: this.$store.state.theme.card}">
+              <div class="card card-user" :style="this.$parent.cardColor">
                 <div class="image">
                   <img src="/src/assets/img/profile_cover.jpg" />
                 </div>
                 <div class="content">
                   <div class="author">
                     <img class="avatar border-gray" src="/src/assets/img/face-2.jpg" alt="..."/>
-                    <h3 :style="{color: this.$store.state.theme.card_font_color}" id="headFullName">{{ user.username }}</h3>
+                    <h3 :style="this.$parent.cardFontColor" id="headFullName">{{ user.username }}</h3>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="col-md-12">
-              <div class="card" :style="{background: this.$store.state.theme.card}">
+              <div class="card" :style="this.$parent.cardColor">
                 <div class="header">
-                  <h4 :style="{color: this.$store.state.theme.card_font_color}" class="title">Edit profile</h4>
+                  <h4 :style="this.$parent.cardFontColor" class="title">Edit profile</h4>
                 </div>
                 <div class="content">
                   <form @submit.prevent="updateUser">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label :style="{color: this.$store.state.theme.card_font_color}">Username</label>
+                          <label :style="this.$parent.cardFontColor">Username</label>
                           <input id="formUsername" type="text" class="form-control" v-model="user.username" required="">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label :style="{color: this.$store.state.theme.card_font_color}">Email address</label>
+                          <label :style="this.$parent.cardFontColor">Email address</label>
                           <input id="formEmail" type="email" class="form-control" v-model="user.email"required="">
                         </div>
                       </div>
@@ -46,19 +46,19 @@
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label :style="{color: this.$store.state.theme.card_font_color}">Name</label>
+                          <label :style="this.$parent.cardFontColor">Name</label>
                           <input id="formName" type="text" class="form-control" v-model="user.name"required="">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label :style="{color: this.$store.state.theme.card_font_color}">Lastname</label>
+                          <label :style="this.$parent.cardFontColor">Lastname</label>
                           <input id="formSurname" type="text" class="form-control" v-model="user.lastname" required="">
                         </div>
                       </div>
                     </div>
                     <hr>
-                    <button type="submit" class="moarButton" :style="{background: this.$store.state.theme.button}">
+                    <button type="submit" class="moarButton" :style="this.$parent.buttonColor">
                       Save changes
                     </button>
                     <div class="clearfix"></div>
@@ -68,34 +68,34 @@
             </div>
 
             <div class="col-md-12">
-              <div class="card" :style="{background: this.$store.state.theme.card}">
+              <div class="card" :style="this.$parent.cardColor">
                 <div class="header">
-                  <h4 :style="{color: this.$store.state.theme.card_font_color}" class="title">Change password</h4>
+                  <h4 :style="this.$parent.cardFontColor" class="title">Change password</h4>
                 </div>
                 <div class="content">
                   <form @submit.prevent="updatePassword">
                     <div class="row">
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label :style="{color: this.$store.state.theme.card_font_color}">Old password</label>
+                          <label :style="this.$parent.cardFontColor">Old password</label>
                           <input id="formOldPassword" type="password" class="form-control" v-model="user.oldPassword" required="">
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group">
-                          <label :style="{color: this.$store.state.theme.card_font_color}">New password</label>
+                          <label :style="this.$parent.cardFontColor">New password</label>
                           <input id="formNewPassword" type="password" class="form-control" v-model="user.newPassword" required="">
                         </div>
                       </div>
                       <div class="col-md-6 col-md-offset-3">
                         <div class="form-group">
-                          <label :style="{color: this.$store.state.theme.card_font_color}">Reenter password</label>
+                          <label :style="this.$parent.cardFontColor">Reenter password</label>
                           <input id="formConfirmPassword" type="password" class="form-control" v-model="user.confirmPassword" required="">
                         </div>
                       </div>
                     </div>
                     <hr>
-                    <button type="submit" class="moarButton" :style="{background: this.$store.state.theme.button}">
+                    <button type="submit" class="moarButton" :style="this.$parent.buttonColor">
                       Change password
                     </button>
                     <div class="clearfix"></div>

@@ -2,10 +2,10 @@
   <table class="table">
     <thead>
     <tr>
-      <th width="10%" :style="{color: this.$store.state.theme.card_font_color}">Room</th>
-      <th width="10%" :style="{color: this.$store.state.theme.card_font_color}">Sensor</th>
-      <th width="10%" :style="{color: this.$store.state.theme.card_font_color}">Delete</th>
-      <th width="10%" :style="{color: this.$store.state.theme.card_font_color}">Save</th>
+      <th width="10%" :style="this.$parent.$parent.cardFontColor">Room</th>
+      <th width="10%" :style="this.$parent.$parent.cardFontColor">Sensor</th>
+      <th width="10%" :style="this.$parent.$parent.cardFontColor">Delete</th>
+      <th width="10%" :style="this.$parent.$parent.cardFontColor">Save</th>
     </tr>
     </thead>
     <tbody id="tbody">

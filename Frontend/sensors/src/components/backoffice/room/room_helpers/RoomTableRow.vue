@@ -1,6 +1,6 @@
 <template>
   <tr>
-    <td :style="{color: this.$store.state.theme.card_font_color}"> {{this.room.name}}</td>
+    <td :style="this.$parent.$parent.$parent.cardFontColor"> {{this.room.name}}</td>
     <td>
       <Select :room-id="this.room.ID"/>
     </td>
