@@ -14,7 +14,7 @@ services:
       - ./tools/:/tools
     working_dir: /go/src/project/
     ports:
-      - 8801:8801
+      - 8081:8081
     depends_on:
       - db
     command: ["sh",  "/tools/compile.sh", "db"]

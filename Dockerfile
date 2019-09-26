@@ -1,6 +1,6 @@
 FROM golang:1.12.6-alpine3.10 AS build
 
-EXPOSE 8801/tcp
+EXPOSE 8081/tcp
 
 # Install tools required to build the project
 # We need to run `docker build --no-cache .` to update those dependencies
@@ -20,7 +20,4 @@ COPY docker/app/Gopkg.lock /go/src/project/
 COPY docker/app/Gopkg.toml /go/src/project/
 
 WORKDIR /go/src/project/
-
-# Install library dependencies
-RUN dep ensure -vendor-only
 
