@@ -1,0 +1,9 @@
+version: "2"
+
+options:
+  verbose: true
+syncs:
+  src-app:
+    src: 'api'
+    sync_strategy: native_osx
+    sync_prefer: src
