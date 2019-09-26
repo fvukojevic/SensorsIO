@@ -16,7 +16,7 @@ func connectToDatabase() {
 		log.Fatal("Error loading .env file")
 	}
 
-	db, dbErr = gorm.Open(os.Getenv("DB_CONNECTION"), os.Getenv("DB_USERNAME")+":"+os.Getenv("DB_PASSWORD")+"@tcp(0.0.0.0:3306)/"+os.Getenv("DB_DATABASE")+
+	db, dbErr = gorm.Open("mysql", os.Getenv("MYSQL_USER")+":"+os.Getenv("MYSQL_PASSWORD")+"@tcp(db:3306)/"+os.Getenv("MYSQL_DATABASE")+
 		"?charset=utf8&parseTime=True&loc=Local")
 	if dbErr != nil {
 		log.Fatal(dbErr)
