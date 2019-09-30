@@ -10,7 +10,7 @@ build: ##@setup build docker images
 .PHONY: build
 
 start: ##@development start servers
-	$(DOCKER_SYNC) start || true
+#	$(DOCKER_SYNC) start || true
 	$(DOCKER_COMPOSE) up -d
 .PHONY: start
 
