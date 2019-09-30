@@ -9,6 +9,7 @@ services:
       MYSQL_DATABASE: sensors
       MYSQL_USER: docker
       MYSQL_PASSWORD: docker
+      GO_PORT: 8081
     volumes:
       - ./Backend:/go/src/project/
       - ./tools/:/tools
