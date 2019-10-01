@@ -26,11 +26,11 @@
             <p :style="this.$parent.$parent.themeFontColor">Rooms</p>
           </router-link>
         </li>
-        <li>
-          <a href="obavijesti.php">
+        <li :class="{ active : currentPage('/notifications')}">
+          <router-link :to="{ name: 'notifications'}">
             <i :style="this.$parent.$parent.themeFontColor" class="pe-7s-news-paper"></i>
             <p :style="this.$parent.$parent.themeFontColor">Notifications</p>
-          </a>
+          </router-link>
         </li>
         <li :class="{ active : currentPage('/settings')}">
           <router-link :to="{ name: 'settings'}">
