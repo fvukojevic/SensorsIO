@@ -4,6 +4,7 @@ import Logout from './components/auth/Logout'
 import Profile from './components/backoffice/profile/Profile'
 import Room from './components/backoffice/room/Room'
 import Settings from './components/backoffice/settings/Settings'
+import Notifications from './components/backoffice/notifications/Notifications'
 
 const routes = [
   {
@@ -47,6 +48,14 @@ const routes = [
     path: '/settings',
     name: 'settings',
     component: Settings,
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: '/notifications',
+    name: 'notifications',
+    component: Notifications,
     meta: {
       requiresAuth: true,
     }
