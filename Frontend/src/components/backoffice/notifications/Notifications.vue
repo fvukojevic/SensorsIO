@@ -20,25 +20,25 @@
                 <div class="content">
                   <form>
                     <div class="row">
-                      <div class="col-md-3">
+                      <div class="col-md-2">
                         <h4 class="title">Notify me when</h4>
                       </div>
-                      <div class="col-md-9">
+                      <div class="col-md-10">
                         <select id="selectSensor">
                           <option selected="true" disabled="true">Choose a sensor:</option>
                         </select>
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-3">
+                      <div class="col-md-2">
                         <h4 class="title">passes a value </h4>
                       </div>
-                      <div class="col-md-9 form-group">
+                      <div class="col-md-10 form-group">
                         <input id="notifyValue" type="number" class="form-control">
                       </div>
                     </div>
                     <hr>
-                    <button type="submit" id="notifyMeButton" class="moarButton">Save</button>
+                    <button type="submit" id="notifyMeButton" class="moarButton" :style="this.$parent.buttonColor">Save</button>
                     <div class="clearfix"></div>
                   </form>
                 </div>
@@ -51,7 +51,6 @@
 
       <Footer />
     </div>
-  </div>
 </template>
 
 <script>

@@ -2,7 +2,7 @@
     <div class="wrp">
 
       <form class="form-signin" action="#" @submit.prevent="login">
-        <img class="img-responsive" id="logImage" src="/src/assets/img/logoDark.png" />
+        <img class="img-responsive" id="logImage" src="assets/img/logoDark.png" />
 
         <hr id="hrBold">
         <h2 class="form-signin-heading">Login</h2>

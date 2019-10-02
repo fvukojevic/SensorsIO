@@ -3,7 +3,7 @@
     <div class="sidebar-wrapper" :style="this.$parent.$parent.themeColor">
       <div class="logo">
         <router-link :to="{ name: 'dashboard'}">
-          <img class="img-responsive" src="/src/assets/img/logo.png"/>
+          <img class="img-responsive" src="/assets/img/logo.png"/>
         </router-link>
       </div>
 
