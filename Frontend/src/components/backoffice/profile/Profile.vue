@@ -11,11 +11,11 @@
             <div class="col-md-12">
               <div class="card card-user" :style="this.$parent.cardColor">
                 <div class="image">
-                  <img src="/src/assets/img/profile_cover.jpg" />
+                  <img src="/assets/img/profile_cover.jpg" />
                 </div>
                 <div class="content">
                   <div class="author">
-                    <img class="avatar border-gray" src="/src/assets/img/face-2.jpg" alt="..."/>
+                    <img class="avatar border-gray" src="/assets/img/face-2.jpg" alt="..."/>
                     <h3 :style="this.$parent.cardFontColor" id="headFullName">{{ user.username }}</h3>
                   </div>
                 </div>

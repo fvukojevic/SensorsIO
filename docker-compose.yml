@@ -24,10 +24,12 @@ services:
   frontend:
     build:
       context: ./Frontend
+      target: 'develop-stage'
     ports:
-      - 5000:5000
+      - '8080:8080'
     volumes:
-      - ./Frontend/:/app
+      - './Frontend:/app'
+    command: /bin/sh -c "yarn serve"
 
   db:
     image: mysql

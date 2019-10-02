@@ -1,16 +1,14 @@
 # develop stage
-FROM node:11.1-alpine
-
+FROM node:11.1-alpine as develop-stage
 WORKDIR /app
-
-RUN apk update && apk add yarn npm
-RUN yarn global add serve
-
-COPY . /app/
-
-RUN npm install
-RUN npm install cross-env
-RUN npm run build
-
-CMD ["serve"]
-
+COPY package*.json ./
+RUN yarn install
+COPY . .
+# build stage
+FROM develop-stage as build-stage
+RUN yarn build
+# production stage
+FROM nginx:1.15.7-alpine as production-stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
