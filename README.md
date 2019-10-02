@@ -56,4 +56,3 @@ Last thing is to run `npm run dev` inside the same folder and the app will start
 
 * **Ferdo Vukojević** - *Initial work* - [fvukojevic](https://github.com/fvukojevic)
 * **Filip Galić** - *Initial work* - [galion96](https://github.com/galion96)
-
