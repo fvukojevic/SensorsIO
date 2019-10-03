@@ -22,3 +22,7 @@ clean:  ##@setup clean environment
 
 setup: build start ##@setup set up environment
 .PHONY: setup
+
+rr: ##@development restart app container
+	$(DOCKER) restart sensors_api
+.PHONY: rr
