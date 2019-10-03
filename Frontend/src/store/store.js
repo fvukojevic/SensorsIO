@@ -236,6 +236,18 @@ export const store = new Vuex.Store({
             })
         },
 
+        getSensors() {
+            return new Promise((resolve, reject) => {
+                axios.get('http://' + this.state.server + '/sensor/getSensors')
+                    .then(response => {
+                        resolve(response)
+                    })
+                    .catch(error => {
+                        reject(error)
+                    })
+            })
+        },
+
         createSwal(context, data) {
             swal(data).catch(swal.noop);
         }

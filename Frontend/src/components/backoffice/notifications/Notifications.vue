@@ -10,9 +10,7 @@
           <div class="row">
             <div class="col-md-12" id="selector">
               <div class="card">
-                <select id="selectBoard">
-                  <option selected="true" disabled="true">Choose a waspmote:</option>
-                </select>
+                <SelectWaspmote />
               </div>
             </div>
             <div class="col-md-12">
@@ -24,9 +22,7 @@
                         <h4 class="title">Notify me when</h4>
                       </div>
                       <div class="col-md-10">
-                        <select id="selectSensor">
-                          <option selected="true" disabled="true">Choose a sensor:</option>
-                        </select>
+                        <SelectSensor />
                       </div>
                     </div>
                     <div class="row">
@@ -57,13 +53,16 @@
   import Footer from '../../layout/Footer.vue'
   import Sidebar from '../../layout/Sidebar'
   import Navigation from '../../layout/Navigation'
-  import themes from '../../../themes'
+  import SelectWaspmote from './notifications_helpers/SelectWaspmote'
+  import SelectSensor from './notifications_helpers/SelectSensor'
 
   export default {
     components: {
       Footer,
       Sidebar,
-      Navigation
+      Navigation,
+      SelectWaspmote,
+      SelectSensor
     },
   }
 </script>

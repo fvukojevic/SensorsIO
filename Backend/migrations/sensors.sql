@@ -90,7 +90,7 @@ INSERT INTO `rules` (`id`, `id_sensor`, `id_waspmote`, `value`) VALUES
 -- Table structure for table `sensor`
 --
 
-CREATE TABLE `sensor` (
+CREATE TABLE `sensors` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(45) NOT NULL,
   `measure_unit` varchar(5) DEFAULT NULL
@@ -100,7 +100,7 @@ CREATE TABLE `sensor` (
 -- Dumping data for table `sensor`
 --
 
-INSERT INTO `sensor` (`id`, `name`, `measure_unit`) VALUES
+INSERT INTO `sensors` (`id`, `name`, `measure_unit`) VALUES
 (49, 'motion_sensor', ''),
 (50, 'temperature_sensor', 'C'),
 (51, 'humidity_sensor', '%'),
@@ -114,7 +114,7 @@ INSERT INTO `sensor` (`id`, `name`, `measure_unit`) VALUES
 -- Table structure for table `sensor_waspmote`
 --
 
-CREATE TABLE `sensor_waspmote` (
+CREATE TABLE `sensor_waspmotes` (
   `id` int(11) UNSIGNED NOT NULL,
   `id_sensor` int(11) UNSIGNED NOT NULL,
   `id_waspmote` int(11) UNSIGNED NOT NULL,
@@ -127,7 +127,7 @@ CREATE TABLE `sensor_waspmote` (
 -- Dumping data for table `sensor_waspmote`
 --
 
-INSERT INTO `sensor_waspmote` (`id`, `id_sensor`, `id_waspmote`, `reading_count`, `reading_value`, `reading_time`) VALUES
+INSERT INTO `sensor_waspmotes` (`id`, `id_sensor`, `id_waspmote`, `reading_count`, `reading_value`, `reading_time`) VALUES
 (94, 49, 21, 6, '1.00', '2017-11-07 14:37:37'),
 (95, 49, 21, 7, '1.00', '2017-11-07 14:37:43'),
 (96, 50, 21, 10, '20.59', '2017-11-07 14:37:47'),
@@ -1135,7 +1135,7 @@ INSERT INTO `sensor_waspmote` (`id`, `id_sensor`, `id_waspmote`, `reading_count`
 (1186, 49, 21, 238, '1.00', '2017-11-23 01:19:25'),
 (1187, 49, 21, 239, '1.00', '2017-11-23 01:19:27'),
 (1188, 49, 21, 240, '1.00', '2017-11-23 01:19:30');
-INSERT INTO `sensor_waspmote` (`id`, `id_sensor`, `id_waspmote`, `reading_count`, `reading_value`, `reading_time`) VALUES
+INSERT INTO `sensor_waspmotes` (`id`, `id_sensor`, `id_waspmote`, `reading_count`, `reading_value`, `reading_time`) VALUES
 (1189, 49, 21, 241, '1.00', '2017-11-23 01:19:32'),
 (1190, 49, 21, 242, '1.00', '2017-11-23 01:19:47'),
 (1191, 50, 21, 54, '22.03', '2017-11-23 01:19:55'),
@@ -1870,18 +1870,18 @@ ALTER TABLE `rooms`
 ALTER TABLE `rules`
   ADD PRIMARY KEY (`id`),
   ADD KEY `sensor_rules` (`id_sensor`),
-  ADD KEY `sensor_waspmote` (`id_waspmote`);
+  ADD KEY `sensor_waspmotes` (`id_waspmote`);
 
 --
 -- Indexes for table `sensor`
 --
-ALTER TABLE `sensor`
+ALTER TABLE `sensors`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `sensor_waspmote`
 --
-ALTER TABLE `sensor_waspmote`
+ALTER TABLE `sensor_waspmotes`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_sensor` (`id_sensor`),
   ADD KEY `id_waspmote` (`id_waspmote`);
@@ -1919,13 +1919,13 @@ ALTER TABLE `rules`
 --
 -- AUTO_INCREMENT for table `sensor`
 --
-ALTER TABLE `sensor`
+ALTER TABLE `sensors`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `sensor_waspmote`
 --
-ALTER TABLE `sensor_waspmote`
+ALTER TABLE `sensor_waspmotes`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1850;
 
 --
@@ -1954,6 +1954,6 @@ ALTER TABLE `rules`
 --
 -- Constraints for table `sensor_waspmote`
 --
-ALTER TABLE `sensor_waspmote`
+ALTER TABLE `sensor_waspmotes`
   ADD CONSTRAINT `sensor_waspmote_ibfk_1` FOREIGN KEY (`id_sensor`) REFERENCES `sensor` (`id`),
   ADD CONSTRAINT `sensor_waspmote_ibfk_2` FOREIGN KEY (`id_waspmote`) REFERENCES `waspmotes` (`id`);

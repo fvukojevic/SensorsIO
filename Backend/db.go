@@ -19,4 +19,7 @@ func connectToDatabase() {
 	db.AutoMigrate(&User{})
 	db.AutoMigrate(&Room{})
 	db.AutoMigrate(&Waspmote{})
+	db.AutoMigrate(&Rule{})
+	db.AutoMigrate(&Sensor{})
+	db.AutoMigrate(&SensorWaspmote{})
 }

@@ -36,6 +36,11 @@ func main() {
 		v3.POST("/addWaspmoteToRoom", AddWaspmoteToRoom)
 	}
 
+	v4 := router.Group("/sensor")
+	{
+		v4.GET("/getSensors", GetSensors)
+	}
+
 	_ = router.Run(":" + os.Getenv("GO_PORT"))
 }
 
