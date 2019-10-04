@@ -1,8 +1,9 @@
 # develop stage
 FROM node:11.1-alpine as develop-stage
 WORKDIR /app
-COPY package*.json ./
-RUN yarn install
+COPY package.json ./
+COPY yarn.lock ./
+RUN yarn install --production=false
 COPY . .
 # build stage
 FROM develop-stage as build-stage
